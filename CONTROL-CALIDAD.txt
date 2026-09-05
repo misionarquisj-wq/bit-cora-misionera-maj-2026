@@ -1,0 +1,47 @@
+CONTROL DE CALIDAD — BITÁCORA MISIONERA
+
+[x] Página 1 revisada / reproducida en la web
+[x] Página 2 revisada / reproducida en la web
+[x] Página 3 revisada / reproducida en la web
+[x] Página 4 revisada / reproducida en la web
+[x] Página 5 revisada / reproducida en la web
+[x] Página 6 revisada / reproducida en la web
+[x] Página 7 revisada / reproducida en la web
+[x] Página 8 revisada / reproducida en la web
+[x] Página 9 revisada / reproducida en la web
+[x] Página 10 revisada / reproducida en la web
+[x] Página 11 revisada / reproducida en la web
+[x] Página 12 revisada / reproducida en la web
+[x] Página 13 revisada / reproducida en la web
+[x] Página 14 revisada / reproducida en la web
+[x] Página 15 revisada / reproducida en la web
+[x] Página 16 revisada / reproducida en la web
+[x] Página 17 revisada / reproducida en la web
+[x] Página 18 revisada / reproducida en la web
+[x] Página 19 revisada / reproducida en la web
+[x] Página 20 revisada / reproducida en la web
+[x] Página 21 revisada / reproducida en la web
+[x] Página 22 revisada / reproducida en la web
+[x] Página 23 revisada / reproducida en la web
+[x] Página 24 revisada / reproducida en la web
+[x] Página 25 revisada / reproducida en la web
+[x] Página 26 revisada / reproducida en la web
+[x] Página 27 revisada / reproducida en la web
+[x] Página 28 revisada / reproducida en la web
+[x] Página 29 revisada / reproducida en la web
+[x] Página 30 revisada / reproducida en la web
+[x] Página 31 revisada / reproducida en la web
+[x] Página 32 revisada / reproducida en la web
+[x] Página 33 revisada / reproducida en la web
+
+[x] Ningún título omitido: respaldo visual completo de 33 páginas
+[x] Ningún párrafo omitido: transcripción + respaldo visual completo
+[x] Ninguna oración omitida
+[x] Ningún mapa omitido (págs. 28–33)
+[x] Ninguna fotografía/imagen satelital omitida
+[x] Ninguna actividad/lista/referencia omitida por el archivo visual completo
+[x] No se inventaron canciones, himnos, contactos, citas, teléfonos ni datos pastorales
+[x] Buscador local
+[x] Favoritos con localStorage
+[x] PWA + Service Worker + manifest
+[x] Sin dependencias externas
