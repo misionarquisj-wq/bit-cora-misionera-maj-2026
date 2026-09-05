@@ -12,39 +12,117 @@
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
+
 <header class="topbar">
   <button class="icon-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
-  <a class="brand" href="#inicio" aria-label="Inicio"><span class="brand-mark">✝</span><span>Bitácora Misionera</span></a>
+  <a class="brand" href="#inicio" aria-label="Inicio">
+    <span class="brand-mark">✝</span>
+    <span>Bitácora Misionera</span>
+  </a>
   <button class="icon-btn" id="favBtn" aria-label="Ver favoritos">★</button>
 </header>
+
 <nav id="drawer" class="drawer" aria-label="Navegación principal">
   <button class="drawer-close" id="drawerClose" aria-label="Cerrar menú">×</button>
-  <a href="#inicio">🏠 Inicio</a><a href="#oraciones">✝️ Oraciones</a><a href="#examen">❤️ Examen de conciencia</a>
-  <a href="#salir">👣 Salir a misionar</a><a href="#casas">🏠 En las casas</a><a href="#herramientas">🧰 Herramientas</a>
-  <a href="#mapa">🗺️ Mapa de misión</a><a href="#fotos">📸 Lugares y fotos</a><a href="#tips">💡 Tips misioneros</a>
+  <a href="#inicio">🏠 Inicio</a>
+  <a href="#oraciones">✝️ Oraciones</a>
+  <a href="#examen">❤️ Examen de conciencia</a>
+  <a href="#salir">👣 Salir a misionar</a>
+  <a href="#casas">🏠 En las casas</a>
+  <a href="#herramientas">🧰 Herramientas</a>
+  <a href="#mapa">🗺️ Mapa de misión</a>
+  <a href="#tips">💡 Tips misioneros</a>
 </nav>
+
 <div id="scrim" class="scrim" hidden></div>
+
 <main id="contenido">
+
 <section class="hero" id="inicio">
   <div class="hero-symbol" aria-hidden="true">✝︎</div>
-  <p class="eyebrow">MAJ · Misión 2026</p><h1>BITÁCORA MISIONERA</h1><p class="subtitle">“Uno en Cristo, unidos en la Misión”</p>
+  <p class="eyebrow">MAJ · Misión 2026</p>
+  <h1>BITÁCORA MISIONERA</h1>
+  <p class="subtitle">“Uno en Cristo, unidos en la Misión”</p>
   <p class="lead">Todo lo necesario para acompañar la misión desde el teléfono, incluso sin Internet.</p>
   <div class="offline-pill" id="offlineStatus">● Disponible sin conexión tras la primera carga completa</div>
 </section>
-<section class="search-wrap" aria-label="Buscador"><label for="globalSearch">Buscar en toda la Bitácora</label><div class="search-box"><span>⌕</span><input id="globalSearch" type="search" placeholder="Ej.: enfermo, despedida, oración…" autocomplete="off"><button id="clearSearch" aria-label="Limpiar búsqueda">×</button></div><div id="searchResults" class="search-results" hidden></div></section>
-<section class="quick"><h2>Accesos rápidos</h2><div class="quick-grid">
-<a href="#oraciones">🙏<span>ORAR</span></a><a href="#salir">👣<span>SALIR A MISIONAR</span></a><a href="#casas">🏠<span>VISITAR UNA CASA</span></a><a href="#herramientas">🧰<span>HERRAMIENTAS</span></a><a href="#mapa">🗺️<span>MAPA</span></a><a href="#tips">💡<span>TIPS</span></a><a href="#cancionero">🎶<span>CANCIONERO</span></a><a href="#himno">🎵<span>HIMNO MAJ</span></a><a href="#examen">❤️<span>EXAMEN</span></a><a href="#formacion">📖<span>MATERIAL</span></a>
-</div></section>
+
+<section class="search-wrap" aria-label="Buscador">
+  <label for="globalSearch">Buscar en toda la Bitácora</label>
+  <div class="search-box">
+    <span>⌕</span>
+    <input id="globalSearch" type="search" placeholder="Ej.: enfermo, despedida, oración…" autocomplete="off">
+    <button id="clearSearch" aria-label="Limpiar búsqueda">×</button>
+  </div>
+  <div id="searchResults" class="search-results" hidden></div>
+</section>
+
+<section class="quick">
+  <h2>Accesos rápidos</h2>
+  <div class="quick-grid">
+    <a href="#oraciones">🙏<span>ORAR</span></a>
+    <a href="#salir">👣<span>SALIR A MISIONAR</span></a>
+    <a href="#casas">🏠<span>VISITAR UNA CASA</span></a>
+    <a href="#herramientas">🧰<span>HERRAMIENTAS</span></a>
+    <a href="#mapa">🗺️<span>MAPA</span></a>
+    <a href="#tips">💡<span>TIPS</span></a>
+    <a href="#himno">🎵<span>HIMNO MAJ</span></a>
+    <a href="#examen">❤️<span>EXAMEN</span></a>
+    <a href="#formacion">📖<span>MATERIAL</span></a>
+  </div>
+</section>
+
 <div id="dynamicSections"></div>
-<section id="mapa" class="section"><div class="section-head"><span>🗺️</span><div><p class="eyebrow">Territorio</p><h2>Mapa de misión</h2></div></div><p class="section-intro">Los mapas se conservan como reproducciones locales de las páginas originales. Tocá una imagen para ampliarla.</p><div id="mapGallery" class="gallery"></div></section>
-<section id="fotos" class="section"><div class="section-head"><span>📸</span><div><p class="eyebrow">Referencia visual</p><h2>Lugares y fotos</h2></div></div><div class="empty-card">El PDF no contiene una galería fotográfica separada. Las imágenes satelitales y referencias visuales disponibles están preservadas íntegramente en <a href="#mapa">Mapa de misión</a>.</div></section>
-<section id="cancionero" class="section"><div class="section-head"><span>🎶</span><div><p class="eyebrow">Música</p><h2>Cancionero</h2></div></div><div class="empty-card">Pendiente de contenido. El PDF proporcionado no contiene canciones ni letras de cancionero.</div></section>
-<section id="himno" class="section special"><div class="section-head"><span>🎵</span><div><p class="eyebrow">MAJ</p><h2>Himno de la MAJ</h2></div></div><div class="empty-card">Pendiente de contenido. En el PDF proporcionado no aparece la letra ni un archivo de audio del Himno de la MAJ.</div></section>
-<section id="otros" class="section"><div class="section-head"><span>📚</span><div><p class="eyebrow">Conservación</p><h2>Otros recursos</h2></div></div><div class="empty-card">Todo el material identificado del PDF está organizado en las secciones anteriores. El archivo completo se conserva además página por página al final de la Bitácora.</div></section>
-<section id="archivo" class="section"><div class="section-head"><span>🗂️</span><div><p class="eyebrow">Control de integridad</p><h2>PDF completo · 33 páginas</h2></div></div><p class="section-intro">Esta reproducción visual sirve como control de fidelidad: ninguna página del PDF queda fuera de la web.</p><div class="archive-controls"><button id="openAllPages" class="secondary">Mostrar todas</button><button id="closeAllPages" class="secondary">Contraer todas</button></div><div id="pageArchive" class="page-archive"></div></section>
+
+<section id="mapa" class="section">
+  <div class="section-head">
+    <span>🗺️</span>
+    <div>
+      <p class="eyebrow">Territorio</p>
+      <h2>Mapa de misión</h2>
+    </div>
+  </div>
+  <p class="section-intro">Los mapas se conservan como reproducciones locales de las páginas originales. Tocá una imagen para ampliarla.</p>
+  <div id="mapGallery" class="gallery"></div>
+</section>
+
+<section id="himno" class="section special">
+  <div class="section-head">
+    <span>🎵</span>
+    <div>
+      <p class="eyebrow">MAJ</p>
+      <h2>Himno de la MAJ</h2>
+    </div>
+  </div>
+  <div class="empty-card">Pendiente de contenido. En el PDF proporcionado no aparece la letra ni un archivo de audio del Himno de la MAJ.</div>
+</section>
+
 </main>
-<div id="favoritesPanel" class="favorites-panel" hidden><div class="panel-card"><div class="panel-head"><h2>⭐ Favoritos</h2><button id="closeFavs" class="icon-btn">×</button></div><div id="favoritesList"></div></div></div>
-<dialog id="lightbox"><button id="lightboxClose" aria-label="Cerrar">×</button><img id="lightboxImg" alt=""><p id="lightboxCaption"></p></dialog>
-<footer><p>Bitácora Misionera · MAJ 2026</p><p>Contenido basado en el PDF proporcionado. Funciona de forma local y sin servicios externos.</p></footer>
-<script src="js/data.js"></script><script src="js/search.js"></script><script src="js/app.js"></script>
-</body></html>
+
+<div id="favoritesPanel" class="favorites-panel" hidden>
+  <div class="panel-card">
+    <div class="panel-head">
+      <h2>⭐ Favoritos</h2>
+      <button id="closeFavs" class="icon-btn">×</button>
+    </div>
+    <div id="favoritesList"></div>
+  </div>
+</div>
+
+<dialog id="lightbox">
+  <button id="lightboxClose" aria-label="Cerrar">×</button>
+  <img id="lightboxImg" alt="">
+  <p id="lightboxCaption"></p>
+</dialog>
+
+<footer>
+  <p>Bitácora Misionera · MAJ 2026</p>
+  <p>Contenido basado en el PDF proporcionado. Funciona de forma local y sin servicios externos.</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/search.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
