@@ -1,128 +1,892 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#7a475b">
-<meta name="description" content="Bitácora Misionera MAJ 2026, preparada para funcionar sin conexión.">
-<title>Bitácora Misionera</title>
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="images/icons/icon-192.png">
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="description"
+    content="Bitácora Misionera MAJ 2026"
+  >
+
+  <meta name="theme-color" content="#6D3FA0">
+
+  <link rel="manifest" href="manifest.json">
+
+  <title>Bitácora Misionera</title>
+
+  <style>
+    :root {
+      --morado: #6D3FA0;
+      --morado-oscuro: #4B2875;
+      --morado-claro: #EFE7F7;
+      --blanco: #FFFFFF;
+      --texto: #29232F;
+      --gris: #F5F3F7;
+      --borde: #DED6E5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--gris);
+      color: var(--texto);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* =========================
+       ENCABEZADO
+    ========================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--morado);
+      color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      min-height: 64px;
+      padding: 10px 16px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: .04em;
+      font-size: 17px;
+    }
+
+    .menu-button {
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 10px;
+    }
+
+    .menu-button:active {
+      background: rgba(255,255,255,.15);
+    }
+
+    nav {
+      display: none;
+      padding: 8px 16px 16px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    nav.open {
+      display: block;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 10px;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,.12);
+    }
+
+    /* =========================
+       CONTENEDOR
+    ========================== */
+
+    main {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 14px 50px;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+      margin-top: 24px;
+    }
+
+    /* =========================
+       PORTADA
+    ========================== */
+
+    .portada {
+      margin: 0 -14px;
+      background: white;
+    }
+
+    .portada img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* =========================
+       BÚSQUEDA
+    ========================== */
+
+    .buscador {
+      background: white;
+      padding: 18px;
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .buscador label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .buscador input {
+      width: 100%;
+      border: 2px solid var(--borde);
+      border-radius: 14px;
+      padding: 13px 15px;
+      outline: none;
+      background: white;
+    }
+
+    .buscador input:focus {
+      border-color: var(--morado);
+    }
+
+    /* =========================
+       PÁGINAS DEL PDF
+    ========================== */
+
+    .contenido-pdf {
+      margin-top: 24px;
+    }
+
+    .pagina {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 22px;
+      box-shadow: 0 3px 14px rgba(60,40,80,.10);
+    }
+
+    .pagina img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .numero-pagina {
+      padding: 10px 14px;
+      color: var(--morado-oscuro);
+      background: var(--morado-claro);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* =========================
+       EMERGENCIAS
+    ========================== */
+
+    .emergencias {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      margin-top: 30px;
+      border: 2px solid var(--morado);
+    }
+
+    .emergencias h2 {
+      color: var(--morado-oscuro);
+      margin-top: 0;
+    }
+
+    .numero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+
+      padding: 14px;
+      margin: 10px 0;
+
+      border-radius: 12px;
+      background: var(--morado-claro);
+    }
+
+    .numero strong {
+      color: var(--morado-oscuro);
+    }
+
+    .numero span {
+      font-weight: 800;
+    }
+
+    /* =========================
+       BOTÓN VOLVER ARRIBA
+    ========================== */
+
+    .arriba {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+
+      width: 48px;
+      height: 48px;
+
+      border: 0;
+      border-radius: 50%;
+
+      background: var(--morado);
+      color: white;
+
+      font-size: 20px;
+      cursor: pointer;
+
+      box-shadow: 0 4px 14px rgba(0,0,0,.2);
+
+      display: none;
+    }
+
+    .arriba.visible {
+      display: block;
+    }
+
+    /* =========================
+       ESTADO DE BÚSQUEDA
+    ========================== */
+
+    .sin-resultados {
+      display: none;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* =========================
+       ESCRITORIO
+    ========================== */
+
+    @media (min-width: 760px) {
+
+      .menu-button {
+        display: none;
+      }
+
+      nav {
+        display: flex;
+        padding: 0 16px 10px;
+        gap: 5px;
+      }
+
+      nav a {
+        display: inline-block;
+      }
+
+      .portada {
+        margin: 0;
+        border-radius: 0 0 18px 18px;
+        overflow: hidden;
+      }
+
+      .contenido-pdf {
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<a class="skip" href="#contenido">Saltar al contenido</a>
 
-<header class="topbar">
-  <button class="icon-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
-  <a class="brand" href="#inicio" aria-label="Inicio">
-    <span class="brand-mark">✝</span>
-    <span>Bitácora Misionera</span>
-  </a>
-  <button class="icon-btn" id="favBtn" aria-label="Ver favoritos">★</button>
-</header>
+  <!-- =========================
+       ENCABEZADO
+  ========================== -->
 
-<nav id="drawer" class="drawer" aria-label="Navegación principal">
-  <button class="drawer-close" id="drawerClose" aria-label="Cerrar menú">×</button>
-  <a href="#inicio">🏠 Inicio</a>
-  <a href="#oraciones">✝️ Oraciones</a>
-  <a href="#examen">❤️ Examen de conciencia</a>
-  <a href="#salir">👣 Salir a misionar</a>
-  <a href="#casas">🏠 En las casas</a>
-  <a href="#herramientas">🧰 Herramientas</a>
-  <a href="#mapa">🗺️ Mapa de misión</a>
-  <a href="#tips">💡 Tips misioneros</a>
-</nav>
+  <header>
 
-<div id="scrim" class="scrim" hidden></div>
+    <div class="header-inner">
 
-<main id="contenido">
+      <a href="#inicio" class="brand">
+        BITÁCORA MISIONERA
+      </a>
 
-<section class="hero" id="inicio">
-  <div class="hero-symbol" aria-hidden="true">✝︎</div>
-  <p class="eyebrow">MAJ · Misión 2026</p>
-  <h1>BITÁCORA MISIONERA</h1>
-  <p class="subtitle">“Uno en Cristo, unidos en la Misión”</p>
-  <p class="lead">Todo lo necesario para acompañar la misión desde el teléfono, incluso sin Internet.</p>
-  <div class="offline-pill" id="offlineStatus">● Disponible sin conexión tras la primera carga completa</div>
-</section>
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
 
-<section class="search-wrap" aria-label="Buscador">
-  <label for="globalSearch">Buscar en toda la Bitácora</label>
-  <div class="search-box">
-    <span>⌕</span>
-    <input id="globalSearch" type="search" placeholder="Ej.: enfermo, despedida, oración…" autocomplete="off">
-    <button id="clearSearch" aria-label="Limpiar búsqueda">×</button>
-  </div>
-  <div id="searchResults" class="search-results" hidden></div>
-</section>
-
-<section class="quick">
-  <h2>Accesos rápidos</h2>
-  <div class="quick-grid">
-    <a href="#oraciones">🙏<span>ORAR</span></a>
-    <a href="#salir">👣<span>SALIR A MISIONAR</span></a>
-    <a href="#casas">🏠<span>VISITAR UNA CASA</span></a>
-    <a href="#herramientas">🧰<span>HERRAMIENTAS</span></a>
-    <a href="#mapa">🗺️<span>MAPA</span></a>
-    <a href="#tips">💡<span>TIPS</span></a>
-    <a href="#himno">🎵<span>HIMNO MAJ</span></a>
-    <a href="#examen">❤️<span>EXAMEN</span></a>
-    <a href="#formacion">📖<span>MATERIAL</span></a>
-  </div>
-</section>
-
-<div id="dynamicSections"></div>
-
-<section id="mapa" class="section">
-  <div class="section-head">
-    <span>🗺️</span>
-    <div>
-      <p class="eyebrow">Territorio</p>
-      <h2>Mapa de misión</h2>
     </div>
-  </div>
-  <p class="section-intro">Los mapas se conservan como reproducciones locales de las páginas originales. Tocá una imagen para ampliarla.</p>
-  <div id="mapGallery" class="gallery"></div>
-</section>
 
-<section id="himno" class="section special">
-  <div class="section-head">
-    <span>🎵</span>
-    <div>
-      <p class="eyebrow">MAJ</p>
-      <h2>Himno de la MAJ</h2>
-    </div>
-  </div>
-  <div class="empty-card">Pendiente de contenido. En el PDF proporcionado no aparece la letra ni un archivo de audio del Himno de la MAJ.</div>
-</section>
+    <nav id="menu">
 
-</main>
+      <a href="#inicio">Inicio</a>
 
-<div id="favoritesPanel" class="favorites-panel" hidden>
-  <div class="panel-card">
-    <div class="panel-head">
-      <h2>⭐ Favoritos</h2>
-      <button id="closeFavs" class="icon-btn">×</button>
-    </div>
-    <div id="favoritesList"></div>
-  </div>
-</div>
+      <a href="#contenido">Contenido</a>
 
-<dialog id="lightbox">
-  <button id="lightboxClose" aria-label="Cerrar">×</button>
-  <img id="lightboxImg" alt="">
-  <p id="lightboxCaption"></p>
-</dialog>
+      <a href="#emergencias">Números de emergencia</a>
 
-<footer>
-  <p>Bitácora Misionera · MAJ 2026</p>
-  <p>Contenido basado en el PDF proporcionado. Funciona de forma local y sin servicios externos.</p>
-</footer>
+    </nav>
 
-<script src="js/data.js"></script>
-<script src="js/search.js"></script>
-<script src="js/app.js"></script>
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         PORTADA
+         PÁGINA 1 DEL PDF
+    ========================== -->
+
+    <section id="inicio">
+
+      <div class="portada">
+
+        <img
+          src="images/pages/pagina-01.jpg"
+          alt="Portada de la Bitácora Misionera"
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BUSCADOR
+    ========================== -->
+
+    <section>
+
+      <div class="buscador">
+
+        <label for="busqueda">
+          Buscar dentro de la Bitácora
+        </label>
+
+        <input
+          id="busqueda"
+          type="search"
+          placeholder="Escribí una palabra..."
+          autocomplete="off"
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTENIDO COMPLETO
+         ORDEN ORIGINAL DEL PDF
+    ========================== -->
+
+    <section id="contenido">
+
+      <div class="contenido-pdf" id="paginas">
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-01.jpg" alt="Página 1">
+          <div class="numero-pagina">Página 1</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-02.jpg" alt="Página 2">
+          <div class="numero-pagina">Página 2</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-03.jpg" alt="Página 3">
+          <div class="numero-pagina">Página 3</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-04.jpg" alt="Página 4">
+          <div class="numero-pagina">Página 4</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-05.jpg" alt="Página 5">
+          <div class="numero-pagina">Página 5</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-06.jpg" alt="Página 6">
+          <div class="numero-pagina">Página 6</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-07.jpg" alt="Página 7">
+          <div class="numero-pagina">Página 7</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-08.jpg" alt="Página 8">
+          <div class="numero-pagina">Página 8</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-09.jpg" alt="Página 9">
+          <div class="numero-pagina">Página 9</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-10.jpg" alt="Página 10">
+          <div class="numero-pagina">Página 10</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-11.jpg" alt="Página 11">
+          <div class="numero-pagina">Página 11</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-12.jpg" alt="Página 12">
+          <div class="numero-pagina">Página 12</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-13.jpg" alt="Página 13">
+          <div class="numero-pagina">Página 13</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-14.jpg" alt="Página 14">
+          <div class="numero-pagina">Página 14</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-15.jpg" alt="Página 15">
+          <div class="numero-pagina">Página 15</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-16.jpg" alt="Página 16">
+          <div class="numero-pagina">Página 16</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-17.jpg" alt="Página 17">
+          <div class="numero-pagina">Página 17</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-18.jpg" alt="Página 18">
+          <div class="numero-pagina">Página 18</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-19.jpg" alt="Página 19">
+          <div class="numero-pagina">Página 19</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-20.jpg" alt="Página 20">
+          <div class="numero-pagina">Página 20</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-21.jpg" alt="Página 21">
+          <div class="numero-pagina">Página 21</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-22.jpg" alt="Página 22">
+          <div class="numero-pagina">Página 22</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-23.jpg" alt="Página 23">
+          <div class="numero-pagina">Página 23</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-24.jpg" alt="Página 24">
+          <div class="numero-pagina">Página 24</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-25.jpg" alt="Página 25">
+          <div class="numero-pagina">Página 25</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-26.jpg" alt="Página 26">
+          <div class="numero-pagina">Página 26</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-27.jpg" alt="Página 27">
+          <div class="numero-pagina">Página 27</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-28.jpg" alt="Página 28">
+          <div class="numero-pagina">Página 28</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-29.jpg" alt="Página 29">
+          <div class="numero-pagina">Página 29</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-30.jpg" alt="Página 30">
+          <div class="numero-pagina">Página 30</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-31.jpg" alt="Página 31">
+          <div class="numero-pagina">Página 31</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-32.jpg" alt="Página 32">
+          <div class="numero-pagina">Página 32</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-33.jpg" alt="Página 33">
+          <div class="numero-pagina">Página 33</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-34.jpg" alt="Página 34">
+          <div class="numero-pagina">Página 34</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-35.jpg" alt="Página 35">
+          <div class="numero-pagina">Página 35</div>
+        </article>
+
+
+        <article class="pagina">
+          <img src="images/pages/pagina-36.jpg" alt="Página 36">
+          <div class="numero-pagina">Página 36</div>
+        </article>
+
+
+      </div>
+
+      <div
+        class="sin-resultados"
+        id="sinResultados"
+      >
+        No se encontró esa palabra en la Bitácora.
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ÚNICO APARTADO EXTRA
+         NÚMEROS DE EMERGENCIA
+    ========================== -->
+
+    <section id="emergencias">
+
+      <div class="emergencias">
+
+        <h2>🚨 Números de emergencia</h2>
+
+        <p>
+          Espacio destinado para colocar los números de emergencia.
+        </p>
+
+        <!--
+          EDITÁ SOLAMENTE ESTA PARTE
+          PARA AGREGAR LOS NÚMEROS.
+        -->
+
+        <div class="numero">
+          <strong>Emergencia 1</strong>
+          <span>________</span>
+        </div>
+
+        <div class="numero">
+          <strong>Emergencia 2</strong>
+          <span>________</span>
+        </div>
+
+        <div class="numero">
+          <strong>Emergencia 3</strong>
+          <span>________</span>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       BOTÓN VOLVER ARRIBA
+  ========================== -->
+
+  <button
+    class="arriba"
+    id="arriba"
+    aria-label="Volver arriba"
+  >
+    ↑
+  </button>
+
+
+  <script>
+
+    /* =========================
+       MENÚ
+    ========================== */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const menu =
+      document.getElementById("menu");
+
+    menuButton.addEventListener("click", () => {
+
+      const abierto =
+        menu.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        abierto
+      );
+
+    });
+
+
+    /* Cerrar menú al tocar un enlace */
+
+    document
+      .querySelectorAll("#menu a")
+      .forEach(enlace => {
+
+        enlace.addEventListener("click", () => {
+
+          menu.classList.remove("open");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        });
+
+      });
+
+
+    /* =========================
+       VOLVER ARRIBA
+    ========================== */
+
+    const botonArriba =
+      document.getElementById("arriba");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 500) {
+
+        botonArriba.classList.add("visible");
+
+      } else {
+
+        botonArriba.classList.remove("visible");
+
+      }
+
+    });
+
+
+    botonArriba.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+
+    /* =========================
+       BUSCADOR
+    ========================== */
+
+    const buscador =
+      document.getElementById("busqueda");
+
+    const paginas =
+      document.querySelectorAll(".pagina");
+
+    const sinResultados =
+      document.getElementById("sinResultados");
+
+
+    buscador.addEventListener("input", () => {
+
+      const texto =
+        buscador.value
+          .toLowerCase()
+          .trim();
+
+      /*
+        Como cada página del PDF está conservada
+        como imagen para no alterar su contenido,
+        este buscador busca por número de página
+        mientras mantenemos intacto el material visual.
+      */
+
+      if (!texto) {
+
+        paginas.forEach(pagina => {
+
+          pagina.style.display = "block";
+
+        });
+
+        sinResultados.style.display = "none";
+
+        return;
+
+      }
+
+
+      let encontrados = 0;
+
+
+      paginas.forEach((pagina, indice) => {
+
+        const numero =
+          String(indice + 1);
+
+        const coincide =
+          texto === numero ||
+          texto === "pagina " + numero ||
+          texto === "página " + numero;
+
+        if (coincide) {
+
+          pagina.style.display = "block";
+
+          encontrados++;
+
+        } else {
+
+          pagina.style.display = "none";
+
+        }
+
+      });
+
+
+      sinResultados.style.display =
+        encontrados === 0
+          ? "block"
+          : "none";
+
+    });
+
+
+    /* =========================
+       SERVICE WORKER
+    ========================== */
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener(
+        "load",
+        () => {
+
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .catch(() => {
+              /* No hacer nada si el registro falla */
+            });
+
+        }
+      );
+
+    }
+
+  </script>
 
 </body>
 </html>
