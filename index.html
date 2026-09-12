@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#8f4f70">
+  <meta name="description" content="Bitácora Misionera MAJ 2026 preparada para funcionar sin conexión.">
+  <title>Bitácora Misionera — MAJ 2026</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="images/ui/cruz-maj.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="topbar">
+    <button class="icon-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-controls="menu" aria-expanded="false">☰</button>
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <img src="images/ui/cruz-maj.png" alt="">
+      <span>Bitácora Misionera</span>
+    </a>
+    <a class="icon-btn" href="#telefonos" aria-label="Teléfonos de emergencia">☎</a>
+  </header>
+
+  <aside id="menu" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <strong>Bitácora Misionera</strong>
+      <button class="icon-btn" id="closeMenu" type="button" aria-label="Cerrar menú">×</button>
+    </div>
+    <nav class="drawer-nav" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#lema">LEMA DE LA MAJ</a>
+      <a href="#oracion-maj">ORACIÓN DE LA MAJ</a>
+      <a href="#oracion-entrega">ORACIÓN DE ENTREGA DESPUÉS DE CADA MISIÓN</a>
+      <a href="#examen">EXÁMEN DE CONCIENCIA</a>
+      <a href="#salir-misionar">ORACIONES PARA SALIR A MISIONAR</a>
+      <a href="#situaciones">ORACIONES PARA DISTINTAS SITUACIONES EN LAS CASAS</a>
+      <a href="#himno">HIMNO MAJ</a>
+      <a href="#herramientas">HERRAMIENTAS PARA EL MISIONERO</a>
+      <a href="#zonas">ZONAS DE MISION</a>
+      <a href="#telefonos">Teléfonos de emergencia</a>
+    </nav>
+  </aside>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <main id="contenido">
+    <section id="inicio" class="view home-view" data-view>
+      <img class="cover" src="images/ui/portada.png" alt="BITÁCORA MISIONERA">
+      <div class="home-grid" aria-label="Apartados de la bitácora">
+        <a class="nav-card" href="#lema"><span>LEMA DE LA MAJ</span></a>
+        <a class="nav-card" href="#oracion-maj"><span>ORACIÓN DE LA MAJ</span></a>
+        <a class="nav-card" href="#oracion-entrega"><span>ORACIÓN DE ENTREGA DESPUÉS DE CADA MISIÓN</span></a>
+        <a class="nav-card" href="#examen"><span>EXÁMEN DE CONCIENCIA</span></a>
+        <a class="nav-card" href="#salir-misionar"><span>ORACIONES PARA SALIR A MISIONAR</span></a>
+        <a class="nav-card" href="#situaciones"><span>ORACIONES PARA DISTINTAS SITUACIONES EN LAS CASAS</span></a>
+        <a class="nav-card" href="#himno"><span>HIMNO MAJ</span></a>
+        <a class="nav-card" href="#herramientas"><span>HERRAMIENTAS PARA EL MISIONERO</span></a>
+        <a class="nav-card" href="#zonas"><span>ZONAS DE MISION</span></a>
+        <a class="nav-card emergency-card" href="#telefonos"><span>Teléfonos de emergencia</span></a>
+      </div>
+    </section>
+
+    <section id="lema" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper centered narrow">
+        <h1 class="pill">LEMA DE LA MAJ</h1>
+        <p class="large-copy">Uno en Cristo,<br>unidos en Misión</p>
+      </article>
+    </section>
+
+    <section id="oracion-maj" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper narrow prayer">
+        <h1 class="pill">ORACIÓN DE LA MAJ</h1>
+        <p>Padre santo, concédenos ser uno en Cristo,<br>
+arraigados a su amor que une y renueva. Haz<br>
+que todos los miembros de la Iglesia estén<br>
+unidos en la misión, dóciles al Espíritu Santo,<br>
+valientes en dar testimonio del Evangelio,<br>
+anunciando y encarnando cada día tu amor<br>
+fiel por cada criatura.<br>
+Bendice a los misioneros y misioneras,<br>
+apóyalos en su esfuerzo, presérvalos en la<br>
+esperanza.<br>
+María, Reina de las misiones, acompaña<br>
+nuestra labor evangelizadora en todos los<br>
+rincones de la tierra; haznos instrumentos de<br>
+tu paz y haz que el mundo entero reconozca<br>
+en Cristo la luz que salva.<br>
+AMÉN.</p>
+      </article>
+    </section>
+
+    <section id="oracion-entrega" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper narrow prayer">
+        <h1 class="pill">ORACIÓN DE ENTREGA DESPUÉS<br>DE CADA MISIÓN</h1>
+        <p>Señor Jesús, gracias por<br>
+habernos permitido llevar tu<br>
+Palabra a quienes hemos<br>
+visitado. Ponemos en tus manos<br>
+sus peticiones y necesidades,<br>
+para que tu amor transforme<br>
+sus vidas. Bendice a cada<br>
+misionero y fortalécenos en la<br>
+fe. Que María, nuestra Madre,<br>
+nos siga acompañando y<br>
+guiando con su amor.<br>
+Amén</p>
+      </article>
+    </section>
+
+    <section id="examen" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper text-page">
+        <h1 class="pill">EXÁMEN DE CONCIENCIA</h1>
+        <h2>EXAMEN DE CONCIENCIA DEL PAPA FRANCISCO -<br>30 PREGUNTAS</h2>
+        <h3>En relación a Dios</h3>
+        <ol start="1">
+          <li>¿Solo me dirijo a Dios en caso de necesidad?</li>
+          <li>¿Participo regularmente en la Misa los domingos y días de fiesta?</li>
+          <li>¿Comienzo y termino mi jornada con la oración?</li>
+          <li>¿Blasfemo en vano el nombre de Dios, de la Virgen, de los santos?</li>
+          <li>¿Me he avergonzado de manifestarme como católico?</li>
+          <li>¿Qué hago para crecer espiritualmente, cómo lo hago, cuándo lo hago?</li>
+          <li>¿Me revelo contra los designios de Dios?</li>
+          <li>¿Pretendo que Él haga mi voluntad?</li>
+        </ol>
+        <h3>En relación al prójimo</h3>
+        <ol start="9">
+          <li>¿Sé perdonar, tengo comprensión, ayudo a mi prójimo?</li>
+          <li>¿Juzgo sin piedad tanto de pensamiento como con palabras?</li>
+          <li>¿He calumniado, robado, despreciado a los humildes y a los indefensos?</li>
+          <li>¿Soy envidioso, colérico, o parcial?</li>
+          <li>¿Me avergüenzo de la carne de mis hermanos, me preocupo de los pobres y de los enfermos?</li>
+          <li>¿Soy honesto y justo con todos o alimento la cultura del descarte?</li>
+          <li>¿Incito a otros a hacer el mal?</li>
+          <li>¿Observo la moral conyugal y familiar enseñada por el Evangelio?</li>
+          <li>¿Cómo cumplo mi responsabilidad de la educación de mis hijos?</li>
+          <li>¿Honro a mis padres?</li>
+          <li>¿He rechazado la vida recién concebida?</li>
+          <li>¿He colaborado a hacerlo?</li>
+          <li>¿Respeto el medio ambiente?</li>
+        </ol>
+        <h3>En relación a mí mismo</h3>
+        <ol start="22">
+          <li>¿Soy un poco mundano y un poco creyente?</li>
+          <li>¿Cómo, bebo, fumo o me divierto en exceso?</li>
+          <li>¿Me preocupo demasiado de mi salud física, de mis bienes?</li>
+          <li>¿Cómo utilizo mi tiempo?</li>
+          <li>¿Soy perezoso?</li>
+          <li>¿Me gusta ser servido?</li>
+          <li>¿Amo y cultivo la pureza de corazón, de pensamientos, de acciones?</li>
+          <li>¿Nutro venganzas, alimento rencores?</li>
+          <li>¿Soy misericordioso, humilde, y constructor de paz?</li>
+        </ol>
+      </article>
+    </section>
+
+    <section id="salir-misionar" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper narrow prayer">
+        <h1 class="big-title">ORACIONES PARA<br>SALIR A MISIONAR</h1>
+        <div class="divider"></div>
+        <h2 class="pill">ORACIÓN AL ESPÍRITU SANTO</h2>
+        <p>Oh Espíritu Santo amor del<br>
+Padre y del Hijo, inspírame<br>
+siempre lo que debo pensar, lo<br>
+que debo decir, como debo<br>
+decirlo, lo que debo callar,<br>
+cómo debo actuar, lo que debo<br>
+hacer para Gloria de Dios,<br>
+bien de las almas y<br>
+mi propia santificación.<br>
+Amén.</p>
+      </article>
+    </section>
+
+    <section id="situaciones" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper text-page">
+        <h1 class="big-title">ORACIONES PARA<br>DISTINTAS SITUACIONES<br>EN LAS CASAS</h1>
+
+        <div class="prayer-block">
+          <h2 class="pill">POR LA BENDICIÓN FAMILIAR</h2>
+          <p>Señor Jesús, tú viviste treinta años en el<br>
+hogar de Nazaret donde junto a José y<br>
+María formaste una familia, imagen de la<br>
+Santísima Trinidad. Hoy te venimos a pedir<br>
+que bendigas esta familia con tu presencia.<br>
+Bendice cada uno de sus integrantes (los<br>
+nombramos). Transfórmala en una “pequeña<br>
+iglesia doméstica”, donde reine la paz, el<br>
+amor y la alegría que tú trajiste al mundo.<br>
+Te lo pedimos por la intercesión de María<br>
+Santísima, Madre y Reina nuestra, a ti que<br>
+vives y reinas por los siglos de los siglos.<br>
+Amen.</p>
+        </div>
+
+        <div class="prayer-block">
+          <h2 class="pill">ORACIÓN DE AGRADECIMIENTO</h2>
+          <p>Hoy, Señor, te doy gracias por esta familia.<br>
+Gracias por la vida de cada uno de sus<br>
+integrantes. Por sus vidas y testimonios que<br>
+son la mejor reserva de paciencia, sabiduría<br>
+y amor. Ayúdalos, Señor, a crecer en el amor<br>
+y repartirlo, a crecer en experiencia y<br>
+compartirla. Conserva esta familia y las<br>
+familias de todo el mundo unidas en el<br>
+amor, para que entre todas construyamos un<br>
+mundo de paz y solidaridad.<br>
+Amén</p>
+        </div>
+
+        <div class="prayer-block">
+          <h2 class="pill">FAMILIA DONDE HAY UN ENFERMO</h2>
+          <p>Señor Jesús, Tú tienes un cariño muy especial<br>
+por los enfermos. En tu Evangelio apareces<br>
+sanando y consolando, fortaleciendo y<br>
+perdonando a muchos enfermos graves.<br>
+Ten comprensión de esta familia, tan<br>
+preocupada por la salud de... (aquí se nombra<br>
+al enfermo), dale a él paciencia en su<br>
+enfermedad y si es para mayor bien de esta<br>
+familia y mayor gloria tuya, alivia de sus<br>
+dolores y molestias y sánalo(a) lo más pronto<br>
+posible.<br>
+Te lo pedimos por intercesión de María, la<br>
+Madre de Jesús. Amén.</p>
+        </div>
+
+        <div class="prayer-block">
+          <h2 class="pill">FAMILIA AFLIGIDA POR UNA DESGRACIA</h2>
+          <p>Señor sabemos que Tú comprendes la<br>
+turbación de nuestro corazón, esperas<br>
+nuestras preguntas y nos escuchas con<br>
+mucha paciencia y misericordia.Ayúdanos,<br>
+pues, a comprender la respuesta que nos das<br>
+en la Cruz de tu Hijo amado. Danos<br>
+profunda fe para aceptar el secreto de tu<br>
+mano poderosa, abre nuestro corazón a la<br>
+Esperanza, pues tanto nos has amado que<br>
+nos entregaste a tu propio Hijo, nuestro<br>
+Hermano, Amigo y Señor, Jesucristo.Que<br>
+podamos sentir el abrazo y consuelo de<br>
+Nuestra Madre María.<br>
+Amen</p>
+        </div>
+
+        <div class="prayer-block">
+          <h2 class="pill">PERSONAS QUE SE ENCUENTRAN SOLAS</h2>
+          <p>Señor Jesús. Tú dijiste a tus discípulos que no<br>
+les dejarías huérfanos, sino que les regalarías<br>
+la presencia del Espíritu Santo dado por el<br>
+Padre a los que crean en ti.<br>
+Tú mismo vienes con tu Palabra a visitarlos.<br>
+TU Espíritu santo ha sido derramado en sus<br>
+corazones, Te pedimos que ninguno de los que<br>
+viven en esta casa se sientan solos y<br>
+abandonados. Acrecienta la unidad de esta<br>
+familia que tú tanto quieres y haz que todos<br>
+se sientan amados y respetados por ti y por<br>
+los tuyos.<br>
+Amén.</p>
+        </div>
+
+        <div class="prayer-block">
+          <h2 class="pill">FAMILIA DONDE SE NECESITA TRABAJO</h2>
+          <p>Oh, Dios nuestro, que con tu Providencia<br>
+amorosa sostienes y guías toda la creación,<br>
+concede a esta familia la gracia de<br>
+conseguir prontamente trabajo, que sea<br>
+honesto, digno y estable; y que, luego, le<br>
+ayudes a ver la tarea laboral como un<br>
+camino de santificación, realizándose con<br>
+amor y en servicio a los demás, encontrando<br>
+al Padre Dios en todas las horas, imitando a<br>
+Jesús ya José cuando trabajaban en su<br>
+taller de Nazaret. Te lo pedimos por<br>
+Jesucristo, nuestro Señor.<br>
+Amén.</p>
+        </div>
+
+        <div class="prayer-block">
+          <h2 class="pill">FAMILIA NO CATÓLICA</h2>
+          <p>Te agradecemos, Señor, la acogida que nos<br>
+ha brindado esta familia.<br>
+Tú despiertas en nosotros un gran respeto<br>
+por todos los que buscan la verdad y<br>
+nosotros creemos que Tú eres la verdad. Te<br>
+pedimos por todos los miembros de esta<br>
+familia, para que siempre los alientes en su<br>
+camino y descubran en Ti al Señor de la<br>
+Vida.<br><br>
+Tú eres la Vida y el Amor. Que quede en ellos<br>
+tu paz.<br>
+Amén.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="himno" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper hymn">
+        <h1>HIMNO MAJ 2026</h1>
+        <div class="hymn-cols">
+          <div>
+            <p>Este fuego misionero nos<br>convoca ya<br>Que todos seamos uno<br>como vos nos enseñas</p>
+            <p>El mundo necesita valientes<br>testigos de tu amor<br>Habla Señor que tu siervo<br>escucha enciende mi<br>corazón</p>
+            <p><strong>Unidos en Cristo,<br>misioneros siempre listos,<br>preparados para la misión</strong></p>
+            <p><strong>(su amor nos une y<br>renueva)</strong></p>
+            <p><strong>De la mano de María,<br>donde necesiten su amor</strong></p>
+            <p>A Jesús Sacramentado lo<br>quiero llevar<br>Anunciarlo a mis hermanos<br>sedientos de su paz</p>
+            <p>Queremos ser un rosario<br>viviente</p>
+          </div>
+          <div>
+            <p>con cada don que das<br>Poder verte en el hermano,<br>sé que en el estás</p>
+            <p><strong>Unidos en Cristo,<br>misioneros siempre listos,<br>preparados para la misión</strong></p>
+            <p><strong>(su amor nos une y<br>renueva)</strong></p>
+            <p><strong>De la mano de María,<br>donde necesiten su amor</strong></p>
+            <p>Como los discípulos y su<br>amor puesto en acción</p>
+            <p>Como hermanos todos<br>unidos en Cristo a la misión</p>
+            <p><strong>Unidos en Cristo,<br>misioneros siempre listos,<br>preparados para la misión</strong></p>
+            <p><strong>su amor nos une y renueva</strong></p>
+            <p><strong>De la mano de María,<br>donde necesiten su amor</strong></p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="herramientas" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper text-page tools">
+        <h1 class="big-title">HERRAMIENTAS<br>PARA EL<br>MISIONERO</h1>
+
+        <section class="tool-section">
+          <h2 class="pill">¿QUÉ ES SER MISIONERO<br>Y CUÁL ES MI OBJETIVO?</h2>
+          <ul>
+            <li>Un misionero es especialmente llamado por Dios.</li>
+            <li>Es quien sale de su zona de confort.</li>
+            <li>Es quien sale al encuentro con el otro</li>
+            <li>Es quien irradia la alegría del Evangelio en la vida diaria.</li>
+            <li>Ser misionero es un labor abierto a todos los bautizados.</li>
+          </ul>
+          <p>El objetivo del Misionero es<br>ser instrumento de Dios para<br>encontrarse y encontrarnos con El.</p>
+        </section>
+
+        <section class="tip-card orange">
+          <div class="tip-heading">TIPS DEL MISIONERO</div>
+          <p class="tip-sub">TE DEJAMOS ESTOS PEQUEÑOS TIPS PARA<br>QUE LLEVES A CABO TUS MISIONES</p>
+          <div class="tip-inner icon-layout">
+            <div>
+              <h2>ESCUCHAR ES LA CLAVE</h2>
+              <p>El encuentro con el otro se basa en la escucha y en la compañía ,muchas veces más que una palabra de aliento nos piden un oído para poder descargarse , aprendamos a escuchar con el corazón, seamos pacientes, amables y educados.</p>
+            </div>
+            <img src="images/ui/oido.png" alt="">
+          </div>
+        </section>
+
+        <section class="tip-card blue">
+          <div class="tip-heading">TIPS DEL MISIONERO</div>
+          <p class="tip-sub">TE DEJAMOS ESTOS PEQUEÑOS TIPS PARA<br>QUE LLEVES A CABO TUS MISIONES</p>
+          <div class="tip-inner">
+            <h2>TRES SENTIDOS. PEDILE QUE...</h2>
+            <p>A la hora de salir a misionar, pedile a Jesús que tus ojos sean los de Él, para tener una mirada comprensiva y amable, pedile que tu boca sea la de Él para transmitir palabras de paz y amor y pedile que tus oídos sean los de El para escuchar con paciencia y amabilidad</p>
+          </div>
+        </section>
+
+        <section class="tip-card green">
+          <div class="tip-heading">TIPS DEL MISIONERO</div>
+          <p class="tip-sub">TE DEJAMOS ESTOS PEQUEÑOS TIPS PARA<br>QUE LLEVES A CABO TUS MISIONES</p>
+          <div class="tip-inner">
+            <h2>MIENTRAS LLEGAS A<br>DESTINO</h2>
+            <p>Mientras vas a destino, anda de forma alegré transmitiendo la buena noticia pero siempre concentrado en lo que vas hacer y con quien te vas a encontrar, que las cosas externas de la misión no te saquen de foco de lo que estás por hacer</p>
+          </div>
+        </section>
+
+        <section class="tip-card purple">
+          <div class="tip-heading">TIPS DEL MISIONERO</div>
+          <p class="tip-sub">TE DEJAMOS ESTOS PEQUEÑOS TIPS PARA<br>QUE LLEVES A CABO TUS MISIONES</p>
+          <div class="tip-inner">
+            <h2>SI TE CIERRAN LAS PUERTAS</h2>
+            <p>Muchas veces nos vamos a topar con situaciones que no nos abren o no se encuentran en el hogar, que eso no sea motivo de desgano, sino que impulse un momento de oración entre patrullas ya sea para la casa a la que fueron como así también para las familias que viven ahí</p>
+          </div>
+        </section>
+
+        <section class="tip-card white">
+          <div class="tip-heading">TIPS DEL MISIONERO</div>
+          <p class="tip-sub">TE DEJAMOS ESTOS PEQUEÑOS TIPS PARA<br>QUE LLEVES A CABO TUS MISIONES</p>
+          <div class="tip-inner">
+            <h2>POST MISIÓN</h2>
+            <p>La misión no termina una vez que salimos de las casas o nos quedamos sin casas para misionar, después sigue una misión personal entre nuestro mismo grupos, para así poder compartir y retroalimentarnos de los frutos de la misión</p>
+          </div>
+        </section>
+
+        <section class="stages">
+          <h2>ETAPAS DE MI ENCUENTRO<br>CON EL OTRO</h2>
+          <div class="stage"><span>1</span><h3>ESPíRITU SANTO</h3><p>Invocar al Espíritu Santo en nuestro camino a la misión, pedirle por un corazón como el de Jesús Ileno de amor, misericordia y compasión hacia los demás, que el sea quien interceda por nosotros</p></div>
+          <div class="stage"><span>2</span><h3>SALUDO- PRESENTACIÓN</h3><p>Un saludo cordial y una presentación adecuada ayuda a generar un ambiente de confianza<br>Buen dia, buenas tardes, de donde soy, a que se debe mi visita, etc.</p></div>
+          <div class="stage"><span>3</span><h3>CONOCERSE</h3><p>Conocer a la persona/ familia crea una base solida para una relación significativa y un dialogo fluido Edad/ estudios/ trabajos/oficios/ hobbies/ gustos</p></div>
+          <div class="stage"><span>4</span><h3>COMPARTIR</h3><p>Compartir tiempo y experiencias con la familias y con el otro , el compartir tiene que ser de una manera bidireccional lo que nos ayudara a establecer confianza con ellos. Compartir como vivir la fe en la vida cotidiana puede ser un gran aliento</p></div>
+          <div class="stage"><span>5</span><h3>ESCUCHAR</h3><p>Cuando un misionero escucha con el corazon transmite una actitud de amor y compasión. Es muy importante una escucha atenta para poder adaptar un mensaje de Fe mas significativo para la persona</p></div>
+          <div class="stage"><span>6</span><h3>MENSAJES-CONSEJOS- CITAS BIBLICAS-REZAR- GESTOS MISIONEROS</h3><p>Llega el momento de dejarles un mensaje de Fe, de esperanza, de amor, compartir en familia alguna cita bíblica, poder rezar juntos, evangelizar al modo de Jesús hablando con el otro.Se pueden realizar gestos misioneros, como dejarles agua bendita, bocaditos, bendecir casas, entre otros.</p></div>
+          <div class="stage"><span>7</span><h3>AVISOS</h3><p>Dejarle la información a familias sobre misas/ talleres y cualquier otra información para que ellos puedan acercarse en base a sus tiempos.</p></div>
+          <div class="stage"><span>8</span><h3>DESPEDIDA</h3><p>Un corazón agradecido, es un corazón con amor, dar las gracias por abrir las puertas de su hogar y de sus vidas. Recordarles que pueden contar ustedes y con la comunidad para apoyarse en el camino de la Fé</p></div>
+        </section>
+      </article>
+    </section>
+
+    <section id="zonas" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper maps-page">
+        <h1 class="big-title">ZONAS DE MISION</h1>
+
+        <section class="zone">
+          <h2>Zona 1:</h2>
+          <p>Roja: San Cayetano<br>Celeste: Barrio Las Casillas<br>ÁFRICA COMPLETO<br>Negrita: Barrio San Martín</p>
+          <div class="map-grid">
+            <button class="map-button" data-map="images/maps/map-015.png"><img src="images/maps/map-015.png" alt="Mapa Zona 1"></button>
+            <button class="map-button" data-map="images/maps/map-016.png"><img src="images/maps/map-016.png" alt="Mapa Zona 1"></button>
+          </div>
+        </section>
+
+        <section class="zone">
+          <h2>Zona 2: EUROPA PATRULLA 1 y 2</h2>
+          <p>Lote Ferrocarril- Conjunto VII</p>
+          <button class="map-button" data-map="images/maps/map-017.png"><img src="images/maps/map-017.png" alt="Mapa Zona 2"></button>
+        </section>
+
+        <section class="zone">
+          <h2>Zona 3:EUROPA -PARRULLA 2 y 3</h2>
+          <p>Rojo: B° Raúl Gómez<br>Celeste: B° Las Viñas</p>
+          <div class="map-grid">
+            <button class="map-button" data-map="images/maps/map-018.png"><img src="images/maps/map-018.png" alt="Mapa Zona 3"></button>
+            <button class="map-button" data-map="images/maps/map-019.png"><img src="images/maps/map-019.png" alt="Mapa Zona 3"></button>
+          </div>
+        </section>
+
+        <section class="zone">
+          <h2>Zona 4: AMÉRICA-PATRULLA 2</h2>
+          <p>Barrio conjunto 5</p>
+          <button class="map-button" data-map="images/maps/map-020.png"><img src="images/maps/map-020.png" alt="Mapa Zona 4 Barrio conjunto 5"></button>
+          <p>Control forestal</p>
+          <button class="map-button" data-map="images/maps/map-021.png"><img src="images/maps/map-021.png" alt="Mapa Zona 4 Control forestal"></button>
+        </section>
+
+        <section class="zone">
+          <h2>Zona 5:</h2>
+          <p>Virgen de guadalupe- lote de alvarez<br>ASIA 1,2,3</p>
+          <button class="map-button" data-map="images/maps/map-022.png"><img src="images/maps/map-022.png" alt="Mapa Zona 5"></button>
+        </section>
+
+        <section class="zone">
+          <h2>Zona 6: AMERICA 1</h2>
+          <p>La Puntilla</p>
+          <button class="map-button" data-map="images/maps/map-023.png"><img src="images/maps/map-023.png" alt="Mapa Zona 6"></button>
+        </section>
+
+        <section class="zone">
+          <h2>Zona 7:</h2>
+          <p>OCEANIA COMPETO-OCEANÍA FAMILIAS<br>Centro</p>
+          <button class="map-button" data-map="images/maps/map-024.png"><img src="images/maps/map-024.png" alt="Mapa Zona 7"></button>
+        </section>
+      </article>
+    </section>
+
+    <section id="telefonos" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper emergency-page">
+        <h1 class="pill">Teléfonos de emergencia</h1>
+        <form id="emergencyForm" autocomplete="off">
+          <label>Emergencias:<input name="emergencias" type="tel" inputmode="tel"></label>
+          <label>Policía:<input name="policia" type="tel" inputmode="tel"></label>
+          <label>Bomberos:<input name="bomberos" type="tel" inputmode="tel"></label>
+          <label>Ambulancia:<input name="ambulancia" type="tel" inputmode="tel"></label>
+          <label>Hospital:<input name="hospital" type="tel" inputmode="tel"></label>
+          <label>Coordinador/a:<input name="coordinador" type="tel" inputmode="tel"></label>
+          <label>Responsable de misión:<input name="responsable" type="tel" inputmode="tel"></label>
+          <button class="save-btn" type="submit">Guardar en este dispositivo</button>
+        </form>
+        <p class="saved-msg" id="savedMsg" role="status" aria-live="polite"></p>
+      </article>
+    </section>
+  </main>
+
+  <dialog id="mapDialog" class="map-dialog">
+    <button class="dialog-close" type="button" aria-label="Cerrar mapa">×</button>
+    <img id="dialogImage" alt="Mapa ampliado">
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
