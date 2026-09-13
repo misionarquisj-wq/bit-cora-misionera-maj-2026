@@ -4,7 +4,7 @@
    tienen la Bitácora guardada NUNCA reciben la corrección.
    Usar la fecha del cambio: '2026-09-25a', '2026-09-25b', etc.
    ───────────────────────────────────────────────────────────── */
-const VERSION = '2026-09-13a';
+const VERSION = '2026-09-13c';
 
 const CACHE = `bitacora-${VERSION}`;
 
@@ -18,7 +18,8 @@ const NUCLEO = [
   './images/ui/cruz-maj.png',
   './images/ui/icon-180.png',
   './images/ui/icon-192.png',
-  './images/ui/icon-512.png'
+  './images/ui/icon-512.png',
+  './images/ui/icon-maskable-512.png'
 ];
 
 // Lo pesado. Se baja después, de a poco y con reintentos, para que
@@ -47,10 +48,24 @@ const INTENTOS_POR_ARCHIVO = 3;
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE)
-      .then(c => c.addAll(NUCLEO))
+      .then(c => Promise.all(NUCLEO.map(url => guardarFresco(c, url))))
       .then(() => self.skipWaiting())
   );
 });
+
+/* Pide el archivo salteando la caché del navegador. Sin esto, al subir
+   una versión nueva se puede terminar guardando el archivo viejo que el
+   navegador todavía tenía dado por bueno, y queda servido hasta la
+   próxima VERSION. Pasó con el ícono de la barra. */
+function pedidoFresco(url) {
+  return new Request(url, { cache: 'reload' });
+}
+
+async function guardarFresco(cache, url) {
+  const respuesta = await traerConLimiteDeTiempo(pedidoFresco(url));
+  if (!sePuedeGuardar(respuesta)) throw new Error('no se pudo guardar ' + url);
+  await cache.put(url, respuesta);
+}
 
 self.addEventListener('activate', e => {
   e.waitUntil((async () => {
@@ -102,11 +117,8 @@ async function descargarPendientes() {
 async function guardarConReintentos(cache, url) {
   for (let intento = 0; intento < INTENTOS_POR_ARCHIVO; intento++) {
     try {
-      const respuesta = await traerConLimiteDeTiempo(url);
-      if (sePuedeGuardar(respuesta)) {
-        await cache.put(url, respuesta);
-        return true;
-      }
+      await guardarFresco(cache, url);
+      return true;
     } catch (_) {}
     await esperar(800 * Math.pow(2, intento));
   }
