@@ -31,7 +31,8 @@ otro cambio, `2026-09-25b`.
 | Archivo | Qué hace |
 |---|---|
 | `index.html` | Todo el contenido. Cada apartado es un `<section data-view>` |
-| `style.css` | Estilos. Los colores están arriba de todo, en `:root` |
+| `style.css` | Estilos. Colores y tipografías arriba de todo, en `:root` |
+| `fonts/` | Las tres tipografías, autoalojadas (no se pueden cargar de internet) |
 | `script.js` | Navegación, menú, visor de mapas, teléfonos, estado de descarga |
 | `sw.js` | Funcionamiento sin conexión. **Acá está `VERSION`** |
 | `manifest.webmanifest` | Datos para instalarla en el teléfono |
@@ -47,6 +48,19 @@ Hay que tocar **dos** archivos:
 Si se agrega en uno y se olvida el otro, la imagen **no queda disponible sin
 señal**. El contador del cartel verde ("Listo para usar sin señal") cuenta
 contra la lista de `sw.js`, así que revisá que el número total cambie.
+
+## Las tipografías
+
+El manual de diseño pide **LazyDog** (títulos), **Bobby Jones** (subtítulos) y
+**Marykate** (textos). Son comerciales y no tenemos los archivos, así que están
+puestas tres libres con el mismo carácter: Chewy, Fredoka y Patrick Hand.
+
+Si aparecen las originales en formato `.woff2`, se reemplaza el archivo dentro
+de `fonts/` y se ajusta el `@font-face` arriba de `style.css`. Nada más.
+
+**No se pueden cargar desde internet** (ni Google Fonts ni ningún otro lado):
+romperían el funcionamiento sin señal. Van siempre autoalojadas y listadas en
+`NUCLEO` dentro de `sw.js`.
 
 ## Los mapas
 
@@ -93,3 +107,6 @@ Repetir en **un iPhone y un Android**, no en uno solo.
   (911, 100, 101, 107) ya vienen cargados y no se editan.
 - La navegación está declarada en tres lugares (menú lateral, tarjetas del
   inicio y las secciones). Si se agrega un apartado hay que tocarlos los tres.
+- "Modelos de misión" está creado pero vacío, esperando el contenido.
+- Las zonas todavía no tienen los enlaces a Google Maps: hacen falta las
+  coordenadas exactas de cada barrio.

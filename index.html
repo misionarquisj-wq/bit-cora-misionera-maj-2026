@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#914f70">
+  <meta name="theme-color" content="#825574">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
   <meta name="description" content="Bitácora Misionera MAJ 2026 preparada para funcionar sin conexión.">
   <title>Bitácora Misionera — MAJ 2026</title>
@@ -34,15 +34,13 @@
     </div>
     <nav class="drawer-nav" aria-label="Navegación principal">
       <a href="#inicio">Inicio</a>
-      <a href="#lema">LEMA DE LA MAJ</a>
-      <a href="#oracion-maj">ORACIÓN DE LA MAJ</a>
-      <a href="#oracion-entrega">ORACIÓN DE ENTREGA DESPUÉS DE CADA MISIÓN</a>
-      <a href="#examen">EXÁMEN DE CONCIENCIA</a>
-      <a href="#salir-misionar">ORACIONES PARA SALIR A MISIONAR</a>
-      <a href="#situaciones">ORACIONES PARA DISTINTAS SITUACIONES EN LAS CASAS</a>
-      <a href="#himno">HIMNO MAJ</a>
-      <a href="#herramientas">HERRAMIENTAS PARA EL MISIONERO</a>
-      <a href="#zonas">ZONAS DE MISION</a>
+      <a href="#lema">Lema de la MAJ</a>
+      <a href="#oraciones">Oraciones y meditaciones</a>
+      <a href="#examen">Examen de conciencia</a>
+      <a href="#himno">Himno MAJ</a>
+      <a href="#patronos">Patronos de cada continente</a>
+      <a href="#herramientas">Herramientas para el misionero</a>
+      <a href="#zonas">Zonas de misión</a>
       <a href="#telefonos">Teléfonos de emergencia</a>
     </nav>
   </aside>
@@ -68,15 +66,13 @@
       </aside>
 
       <div class="home-grid" aria-label="Apartados de la bitácora">
-        <a class="nav-card" href="#lema"><span>LEMA DE LA MAJ</span></a>
-        <a class="nav-card" href="#oracion-maj"><span>ORACIÓN DE LA MAJ</span></a>
-        <a class="nav-card" href="#oracion-entrega"><span>ORACIÓN DE ENTREGA DESPUÉS DE CADA MISIÓN</span></a>
-        <a class="nav-card" href="#examen"><span>EXÁMEN DE CONCIENCIA</span></a>
-        <a class="nav-card" href="#salir-misionar"><span>ORACIONES PARA SALIR A MISIONAR</span></a>
-        <a class="nav-card" href="#situaciones"><span>ORACIONES PARA DISTINTAS SITUACIONES EN LAS CASAS</span></a>
-        <a class="nav-card" href="#himno"><span>HIMNO MAJ</span></a>
-        <a class="nav-card" href="#herramientas"><span>HERRAMIENTAS PARA EL MISIONERO</span></a>
-        <a class="nav-card" href="#zonas"><span>ZONAS DE MISION</span></a>
+        <a class="nav-card" href="#lema"><span>Lema de la MAJ</span></a>
+        <a class="nav-card" href="#oraciones"><span>Oraciones y meditaciones</span></a>
+        <a class="nav-card" href="#examen"><span>Examen de conciencia</span></a>
+        <a class="nav-card" href="#himno"><span>Himno MAJ</span></a>
+        <a class="nav-card" href="#patronos"><span>Patronos de cada continente</span></a>
+        <a class="nav-card" href="#herramientas"><span>Herramientas para el misionero</span></a>
+        <a class="nav-card" href="#zonas"><span>Zonas de misión</span></a>
         <a class="nav-card emergency-card" href="#telefonos"><span>Teléfonos de emergencia</span></a>
       </div>
     </section>
@@ -89,11 +85,24 @@
       </article>
     </section>
 
-    <section id="oracion-maj" class="view content-view" data-view hidden>
+
+
+    <section id="oraciones" class="view content-view" data-view hidden>
       <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
-      <article class="paper narrow prayer">
-        <h1 class="pill">ORACIÓN DE LA MAJ</h1>
-        <p>Padre santo, concédenos ser uno en Cristo,<br>
+      <article class="paper text-page">
+        <h1 class="big-title">Oraciones y<br>meditaciones</h1>
+
+        <div class="buscador">
+          <label class="skip" for="buscarOracion">Buscar una oración</label>
+          <input type="search" id="buscarOracion" placeholder="Buscar: enfermo, trabajo, María…" autocomplete="off">
+        </div>
+
+        <div id="listaOraciones">
+          <h2 class="grupo-oraciones">Para la misión</h2>
+
+          <details class="plegable">
+            <summary>Oración de la MAJ</summary>
+            <div class="cuerpo"><p>Padre santo, concédenos ser uno en Cristo,<br>
 arraigados a su amor que une y renueva. Haz<br>
 que todos los miembros de la Iglesia estén<br>
 unidos en la misión, dóciles al Espíritu Santo,<br>
@@ -108,15 +117,39 @@ nuestra labor evangelizadora en todos los<br>
 rincones de la tierra; haznos instrumentos de<br>
 tu paz y haz que el mundo entero reconozca<br>
 en Cristo la luz que salva.<br>
-AMÉN.</p>
-      </article>
-    </section>
+AMÉN.</p></div>
+          </details>
 
-    <section id="oracion-entrega" class="view content-view" data-view hidden>
-      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
-      <article class="paper narrow prayer">
-        <h1 class="pill">ORACIÓN DE ENTREGA DESPUÉS<br>DE CADA MISIÓN</h1>
-        <p>Señor Jesús, gracias por<br>
+          <details class="plegable">
+            <summary>Oración al Espíritu Santo — para salir a misionar</summary>
+            <div class="cuerpo"><p>Oh Espíritu Santo amor del<br>
+Padre y del Hijo, inspírame<br>
+siempre lo que debo pensar, lo<br>
+que debo decir, como debo<br>
+decirlo, lo que debo callar,<br>
+cómo debo actuar, lo que debo<br>
+hacer para Gloria de Dios,<br>
+bien de las almas y<br>
+mi propia santificación.<br>
+Amén.</p></div>
+          </details>
+
+          <details class="plegable">
+            <summary>Oración de consagración a María</summary>
+            <div class="cuerpo"><p>Oh Señora mía, oh Madre mía,<br>
+yo me ofrezco todo a ti. Y en prueba de mi<br>
+filial afecto, te consagro en este día mis<br>
+ojos, mis oídos, mi lengua y corazón. En<br>
+una palabra, todo mi ser. Ya que soy<br>
+todo tuyo, oh madre de bondad,<br>
+guárdame, defiéndeme y utilízame como<br>
+instrumento y posesión tuya.<br>
+Amén.</p></div>
+          </details>
+
+          <details class="plegable">
+            <summary>Oración de entrega después de cada misión</summary>
+            <div class="cuerpo"><p>Señor Jesús, gracias por<br>
 habernos permitido llevar tu<br>
 Palabra a quienes hemos<br>
 visitado. Ponemos en tus manos<br>
@@ -127,7 +160,130 @@ misionero y fortalécenos en la<br>
 fe. Que María, nuestra Madre,<br>
 nos siga acompañando y<br>
 guiando con su amor.<br>
-Amén</p>
+Amén.</p></div>
+          </details>
+
+          <h2 class="grupo-oraciones">Para rezar en las casas</h2>
+
+          <details class="plegable">
+            <summary>Por la bendición familiar</summary>
+            <div class="cuerpo"><p>Señor Jesús, tú viviste treinta años en el<br>
+hogar de Nazaret donde junto a José y<br>
+María formaste una familia, imagen de la<br>
+Santísima Trinidad. Hoy te venimos a pedir<br>
+que bendigas esta familia con tu presencia.<br>
+Bendice cada uno de sus integrantes (los<br>
+nombramos). Transfórmala en una “pequeña<br>
+iglesia doméstica”, donde reine la paz, el<br>
+amor y la alegría que tú trajiste al mundo.<br>
+Te lo pedimos por la intercesión de María<br>
+Santísima, Madre y Reina nuestra, a ti que<br>
+vives y reinas por los siglos de los siglos.<br>
+Amén.</p></div>
+          </details>
+
+          <details class="plegable">
+            <summary>Oración de agradecimiento</summary>
+            <div class="cuerpo"><p>Hoy, Señor, te doy gracias por esta familia.<br>
+Gracias por la vida de cada uno de sus<br>
+integrantes. Por sus vidas y testimonios que<br>
+son la mejor reserva de paciencia, sabiduría<br>
+y amor. Ayúdalos, Señor, a crecer en el amor<br>
+y repartirlo, a crecer en experiencia y<br>
+compartirla. Conserva esta familia y las<br>
+familias de todo el mundo unidas en el<br>
+amor, para que entre todas construyamos un<br>
+mundo de paz y solidaridad.<br>
+Amén.</p></div>
+          </details>
+
+          <details class="plegable">
+            <summary>Familia donde hay un enfermo</summary>
+            <div class="cuerpo"><p>Señor Jesús, Tú tienes un cariño muy especial<br>
+por los enfermos. En tu Evangelio apareces<br>
+sanando y consolando, fortaleciendo y<br>
+perdonando a muchos enfermos graves.<br>
+Ten comprensión de esta familia, tan<br>
+preocupada por la salud de… (aquí se nombra<br>
+al enfermo), dale a él paciencia en su<br>
+enfermedad y si es para mayor bien de esta<br>
+familia y mayor gloria tuya, alivia sus<br>
+dolores y molestias y sánalo(a) lo más pronto<br>
+posible.<br>
+Te lo pedimos por intercesión de María, la<br>
+Madre de Jesús. Amén.</p></div>
+          </details>
+
+          <details class="plegable">
+            <summary>Familia afligida por una desgracia</summary>
+            <div class="cuerpo"><p>Señor, sabemos que Tú comprendes la<br>
+turbación de nuestro corazón, esperas<br>
+nuestras preguntas y nos escuchas con<br>
+mucha paciencia y misericordia. Ayúdanos,<br>
+pues, a comprender la respuesta que nos das<br>
+en la Cruz de tu Hijo amado. Danos<br>
+profunda fe para aceptar el secreto de tu<br>
+mano poderosa, abre nuestro corazón a la<br>
+Esperanza, pues tanto nos has amado que<br>
+nos entregaste a tu propio Hijo, nuestro<br>
+Hermano, Amigo y Señor, Jesucristo. Que<br>
+podamos sentir el abrazo y consuelo de<br>
+Nuestra Madre María.<br>
+Amén.</p></div>
+          </details>
+
+          <details class="plegable">
+            <summary>Personas que se encuentran solas</summary>
+            <div class="cuerpo"><p>Señor Jesús. Tú dijiste a tus discípulos que no<br>
+les dejarías huérfanos, sino que les regalarías<br>
+la presencia del Espíritu Santo dado por el<br>
+Padre a los que crean en ti.<br>
+Tú mismo vienes con tu Palabra a visitarlos.<br>
+Tu Espíritu Santo ha sido derramado en sus<br>
+corazones. Te pedimos que ninguno de los que<br>
+viven en esta casa se sientan solos y<br>
+abandonados. Acrecienta la unidad de esta<br>
+familia que tú tanto quieres y haz que todos<br>
+se sientan amados y respetados por ti y por<br>
+los tuyos.<br>
+Amén.</p></div>
+          </details>
+
+          <details class="plegable">
+            <summary>Familia donde se necesita trabajo</summary>
+            <div class="cuerpo"><p>Oh, Dios nuestro, que con tu Providencia<br>
+amorosa sostienes y guías toda la creación,<br>
+concede a esta familia la gracia de<br>
+conseguir prontamente trabajo, que sea<br>
+honesto, digno y estable; y que, luego, le<br>
+ayudes a ver la tarea laboral como un<br>
+camino de santificación, realizándose con<br>
+amor y en servicio a los demás, encontrando<br>
+al Padre Dios en todas las horas, imitando a<br>
+Jesús y a José cuando trabajaban en su<br>
+taller de Nazaret. Te lo pedimos por<br>
+Jesucristo, nuestro Señor.<br>
+Amén.</p></div>
+          </details>
+
+          <details class="plegable">
+            <summary>Familia no católica</summary>
+            <div class="cuerpo"><p>Te agradecemos, Señor, la acogida que nos<br>
+ha brindado esta familia.<br>
+Tú despiertas en nosotros un gran respeto<br>
+por todos los que buscan la verdad y<br>
+nosotros creemos que Tú eres la verdad. Te<br>
+pedimos por todos los miembros de esta<br>
+familia, para que siempre los alientes en su<br>
+camino y descubran en Ti al Señor de la<br>
+Vida.</p>
+<p>Tú eres la Vida y el Amor. Que quede en ellos<br>
+tu paz.<br>
+Amén.</p></div>
+          </details>
+        </div>
+
+        <p class="sin-resultados" id="sinResultados" hidden>No hay ninguna oración con esas palabras.</p>
       </article>
     </section>
 
@@ -178,148 +334,7 @@ Amén</p>
       </article>
     </section>
 
-    <section id="salir-misionar" class="view content-view" data-view hidden>
-      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
-      <article class="paper narrow prayer">
-        <h1 class="big-title">ORACIONES PARA<br>SALIR A MISIONAR</h1>
-        <div class="divider"></div>
-        <h2 class="pill">ORACIÓN AL ESPÍRITU SANTO</h2>
-        <p>Oh Espíritu Santo amor del<br>
-Padre y del Hijo, inspírame<br>
-siempre lo que debo pensar, lo<br>
-que debo decir, como debo<br>
-decirlo, lo que debo callar,<br>
-cómo debo actuar, lo que debo<br>
-hacer para Gloria de Dios,<br>
-bien de las almas y<br>
-mi propia santificación.<br>
-Amén.</p>
-      </article>
-    </section>
 
-    <section id="situaciones" class="view content-view" data-view hidden>
-      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
-      <article class="paper text-page">
-        <h1 class="big-title">ORACIONES PARA<br>DISTINTAS SITUACIONES<br>EN LAS CASAS</h1>
-
-        <div class="prayer-block">
-          <h2 class="pill">POR LA BENDICIÓN FAMILIAR</h2>
-          <p>Señor Jesús, tú viviste treinta años en el<br>
-hogar de Nazaret donde junto a José y<br>
-María formaste una familia, imagen de la<br>
-Santísima Trinidad. Hoy te venimos a pedir<br>
-que bendigas esta familia con tu presencia.<br>
-Bendice cada uno de sus integrantes (los<br>
-nombramos). Transfórmala en una “pequeña<br>
-iglesia doméstica”, donde reine la paz, el<br>
-amor y la alegría que tú trajiste al mundo.<br>
-Te lo pedimos por la intercesión de María<br>
-Santísima, Madre y Reina nuestra, a ti que<br>
-vives y reinas por los siglos de los siglos.<br>
-Amen.</p>
-        </div>
-
-        <div class="prayer-block">
-          <h2 class="pill">ORACIÓN DE AGRADECIMIENTO</h2>
-          <p>Hoy, Señor, te doy gracias por esta familia.<br>
-Gracias por la vida de cada uno de sus<br>
-integrantes. Por sus vidas y testimonios que<br>
-son la mejor reserva de paciencia, sabiduría<br>
-y amor. Ayúdalos, Señor, a crecer en el amor<br>
-y repartirlo, a crecer en experiencia y<br>
-compartirla. Conserva esta familia y las<br>
-familias de todo el mundo unidas en el<br>
-amor, para que entre todas construyamos un<br>
-mundo de paz y solidaridad.<br>
-Amén</p>
-        </div>
-
-        <div class="prayer-block">
-          <h2 class="pill">FAMILIA DONDE HAY UN ENFERMO</h2>
-          <p>Señor Jesús, Tú tienes un cariño muy especial<br>
-por los enfermos. En tu Evangelio apareces<br>
-sanando y consolando, fortaleciendo y<br>
-perdonando a muchos enfermos graves.<br>
-Ten comprensión de esta familia, tan<br>
-preocupada por la salud de... (aquí se nombra<br>
-al enfermo), dale a él paciencia en su<br>
-enfermedad y si es para mayor bien de esta<br>
-familia y mayor gloria tuya, alivia de sus<br>
-dolores y molestias y sánalo(a) lo más pronto<br>
-posible.<br>
-Te lo pedimos por intercesión de María, la<br>
-Madre de Jesús. Amén.</p>
-        </div>
-
-        <div class="prayer-block">
-          <h2 class="pill">FAMILIA AFLIGIDA POR UNA DESGRACIA</h2>
-          <p>Señor sabemos que Tú comprendes la<br>
-turbación de nuestro corazón, esperas<br>
-nuestras preguntas y nos escuchas con<br>
-mucha paciencia y misericordia.Ayúdanos,<br>
-pues, a comprender la respuesta que nos das<br>
-en la Cruz de tu Hijo amado. Danos<br>
-profunda fe para aceptar el secreto de tu<br>
-mano poderosa, abre nuestro corazón a la<br>
-Esperanza, pues tanto nos has amado que<br>
-nos entregaste a tu propio Hijo, nuestro<br>
-Hermano, Amigo y Señor, Jesucristo.Que<br>
-podamos sentir el abrazo y consuelo de<br>
-Nuestra Madre María.<br>
-Amen</p>
-        </div>
-
-        <div class="prayer-block">
-          <h2 class="pill">PERSONAS QUE SE ENCUENTRAN SOLAS</h2>
-          <p>Señor Jesús. Tú dijiste a tus discípulos que no<br>
-les dejarías huérfanos, sino que les regalarías<br>
-la presencia del Espíritu Santo dado por el<br>
-Padre a los que crean en ti.<br>
-Tú mismo vienes con tu Palabra a visitarlos.<br>
-TU Espíritu santo ha sido derramado en sus<br>
-corazones, Te pedimos que ninguno de los que<br>
-viven en esta casa se sientan solos y<br>
-abandonados. Acrecienta la unidad de esta<br>
-familia que tú tanto quieres y haz que todos<br>
-se sientan amados y respetados por ti y por<br>
-los tuyos.<br>
-Amén.</p>
-        </div>
-
-        <div class="prayer-block">
-          <h2 class="pill">FAMILIA DONDE SE NECESITA TRABAJO</h2>
-          <p>Oh, Dios nuestro, que con tu Providencia<br>
-amorosa sostienes y guías toda la creación,<br>
-concede a esta familia la gracia de<br>
-conseguir prontamente trabajo, que sea<br>
-honesto, digno y estable; y que, luego, le<br>
-ayudes a ver la tarea laboral como un<br>
-camino de santificación, realizándose con<br>
-amor y en servicio a los demás, encontrando<br>
-al Padre Dios en todas las horas, imitando a<br>
-Jesús ya José cuando trabajaban en su<br>
-taller de Nazaret. Te lo pedimos por<br>
-Jesucristo, nuestro Señor.<br>
-Amén.</p>
-        </div>
-
-        <div class="prayer-block">
-          <h2 class="pill">FAMILIA NO CATÓLICA</h2>
-          <p>Te agradecemos, Señor, la acogida que nos<br>
-ha brindado esta familia.<br>
-Tú despiertas en nosotros un gran respeto<br>
-por todos los que buscan la verdad y<br>
-nosotros creemos que Tú eres la verdad. Te<br>
-pedimos por todos los miembros de esta<br>
-familia, para que siempre los alientes en su<br>
-camino y descubran en Ti al Señor de la<br>
-Vida.<br><br>
-Tú eres la Vida y el Amor. Que quede en ellos<br>
-tu paz.<br>
-Amén.</p>
-        </div>
-      </article>
-    </section>
 
     <section id="himno" class="view content-view" data-view hidden>
       <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
@@ -350,6 +365,105 @@ Amén.</p>
       </article>
     </section>
 
+    <section id="patronos" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
+      <article class="paper text-page">
+        <h1 class="big-title">Patronos de<br>cada continente</h1>
+        <p>Cada continente de la misión tiene un santo que lo acompaña. Tocá cada uno para leer su historia.</p>
+        <div class="divider"></div>
+      <details class="patrono">
+        <summary>
+          <span class="continente">ÁFRICA</span>
+          <span class="santo">San Daniel Comboni</span>
+          <span class="rol">Misionero por África</span>
+        </summary>
+        <div class="cuerpo">
+          <p>Nació el 15 de marzo de 1831 en Limone sul Garda, Italia, en una familia humilde de campesinos. Sus padres eran profundamente creyentes y le transmitieron una fe muy fuerte.</p>
+          <p>De joven se trasladó a Verona para estudiar en el Instituto de don Nicola Mazza. Allí descubrió su vocación sacerdotal y conoció la realidad de África a través de los misioneros que regresaban de ese continente.</p>
+          <p>En 1854 fue ordenado sacerdote y en 1857 realizó su primer viaje misionero a África Central. Llegó a Jartum, en el actual Sudán, después de cuatro meses de viaje. Se encontró con enfermedades, pobreza, hambre, un clima durísimo y la muerte de varios de sus compañeros.</p>
+          <p>Por motivos de salud tuvo que volver a Europa, pero no abandonó su sueño: en 1864 elaboró un proyecto nuevo, resumido en una frase que lo definió.</p>
+          <p>Para Comboni los africanos no debían ser solo personas que recibieran la evangelización: quería formar sacerdotes, catequistas y religiosos africanos para que ellos mismos pudieran anunciar el Evangelio. En 1867 fundó los Misioneros Combonianos y en 1872 las Hermanas Misioneras Combonianas.</p>
+          <p>En 1877 fue nombrado Vicario Apostólico de África Central y consagrado obispo. Realizó su último viaje en 1880 y murió en Jartum el 10 de octubre de 1881, a los 50 años, entre las personas a las que había dedicado su vida.</p>
+          <p>Fue beatificado por Juan Pablo II en 1996 y canonizado por él mismo el 5 de octubre de 2003. Su fiesta se celebra cada 10 de octubre.</p>
+          <p>Comboni nos enseña que ser misionero no significa solamente ir a un lugar lejano, sino estar dispuesto a entregar la propia vida al servicio de los demás.</p>
+          <p class="cita">«Salvar África con África».</p>
+          <p class="resumen">FE · MISIÓN · ENTREGA · PERSEVERANCIA</p>
+        </div>
+      </details>
+      <details class="patrono">
+        <summary>
+          <span class="continente">AMÉRICA</span>
+          <span class="santo">Santa Rosa de Lima</span>
+          <span class="rol">Misionera por América</span>
+        </summary>
+        <div class="cuerpo">
+          <p>Nació el 20 de abril de 1586 en Lima, Perú. Su nombre de nacimiento era Isabel de Flores, pero desde pequeña comenzaron a llamarla Rosa por su gran belleza. Desde muy chica tuvo una relación profunda con Dios.</p>
+          <p>A los cuatro años aprendió a leer por sí misma y, al conocer la vida de los santos, quedó admirada por Santa Catalina de Siena, a quien tomó como modelo espiritual.</p>
+          <p>Sus padres querían que se casara, pero ella decidió permanecer soltera y consagrar su vida a Jesús. A los 20 años ingresó en la Tercera Orden de Santo Domingo.</p>
+          <p>Tenía un corazón especialmente atento a quienes sufrían. En su propia casa preparó una habitación para atender a enfermos, niños pobres, indígenas y ancianos necesitados. Así entendió que amar a Dios también significaba cuidar a quienes más necesitaban ayuda.</p>
+          <p>Murió en Lima el 24 de agosto de 1617, cuando tenía solamente 31 años. Su muerte causó una enorme conmoción entre los habitantes de la ciudad, que ya la consideraban santa.</p>
+          <p>Fue canonizada en 1671 por el papa Clemente X, convirtiéndose en la primera persona nacida en América en ser canonizada, y fue proclamada patrona principal del continente.</p>
+          <p>Santa Rosa nos enseña que la santidad no depende de hacer cosas extraordinarias, sino de aprender a amar profundamente a Dios y poner ese amor al servicio de los demás. Vivió en su propia casa, con su familia, trabajando y ayudando, pero hizo de toda su vida una misión.</p>
+          <p class="resumen">ORACIÓN · ENTREGA · SERVICIO · AMOR · SANTIDAD</p>
+        </div>
+      </details>
+      <details class="patrono">
+        <summary>
+          <span class="continente">EUROPA</span>
+          <span class="santo">San Carlo Acutis</span>
+          <span class="rol">Un joven santo de nuestro tiempo</span>
+        </summary>
+        <div class="cuerpo">
+          <p>Nació el 3 de mayo de 1991 en Londres, Inglaterra. Desde muy pequeño mostró un amor especial por Jesús, la Virgen María y la Eucaristía.</p>
+          <p>A los 7 años hizo su Primera Comunión y desde entonces comenzó a asistir a Misa con mucha frecuencia. Para él, la Eucaristía era su encuentro más importante con Jesús.</p>
+          <p>Una de las cosas que lo hacían especial era su pasión por la informática. Aprendió a usar computadoras desde muy chico y descubrió que podía usar la tecnología para algo mucho más grande: evangelizar. Creó un sitio web donde recopiló información sobre milagros eucarísticos ocurridos en distintos lugares del mundo.</p>
+          <p>Tenía una gran sensibilidad hacia quienes sufrían: ayudaba a compañeros con dificultades, defendía a quienes eran víctimas de burlas y compartía sus cosas con personas necesitadas.</p>
+          <p>Aunque tenía muchos talentos, llevaba una vida sencilla. Le gustaba el fútbol, los videojuegos, los animales y pasar tiempo con sus amigos. Comprendía que la tecnología podía ser algo bueno, pero que no debía dominar su vida.</p>
+          <p>En octubre de 2006, con apenas 15 años, enfermó de leucemia. Su enfermedad avanzó rápidamente y la afrontó con una gran confianza en Dios. Murió el 12 de octubre de 2006 en Monza, Italia.</p>
+          <p>Fue beatificado el 10 de octubre de 2020 en Asís y canonizado el 7 de septiembre de 2025 por el papa León XIV, convirtiéndose en uno de los santos más jóvenes de la Iglesia contemporánea.</p>
+          <p>Carlo nos invita a descubrir que la santidad también es posible en la vida cotidiana: siendo jóvenes, teniendo amigos, disfrutando de lo que nos gusta y poniendo nuestros talentos al servicio de los demás.</p>
+          <p class="cita">«La Eucaristía es mi autopista hacia el cielo». «No yo, sino Dios».</p>
+          <p class="resumen">EUCARISTÍA · MISIÓN · TECNOLOGÍA · AMOR · SANTIDAD</p>
+        </div>
+      </details>
+      <details class="patrono">
+        <summary>
+          <span class="continente">OCEANÍA</span>
+          <span class="santo">San Pedro Chanel</span>
+          <span class="rol">Misionero por Oceanía</span>
+        </summary>
+        <div class="cuerpo">
+          <p>Nació el 12 de julio de 1803 en Cuet, Francia, en una familia humilde de campesinos. Durante su infancia trabajó como pastor y, gracias a la influencia de un sacerdote de su pueblo, descubrió su vocación religiosa. Fue ordenado sacerdote en 1827.</p>
+          <p>Sentía un gran deseo de anunciar el Evangelio donde todavía no se conocía a Jesús. Cuando surgió la oportunidad de participar en una misión en Oceanía, no dudó en ofrecerse. El 24 de diciembre de 1836 partió desde Francia rumbo a las islas del Pacífico y, tras un largo viaje, llegó a la isla de Futuna.</p>
+          <p>Su misión era anunciar el Evangelio a un pueblo que tenía sus propias creencias, costumbres y tradiciones. Pedro ayudaba a los enfermos, atendía a los pobres y acompañaba a las familias: su manera de evangelizar no se basaba solo en las palabras, sino en el ejemplo de su propia vida.</p>
+          <p>La evangelización no fue sencilla. Tuvo que enfrentar la oposición de algunos líderes locales, que veían el cristianismo como una amenaza. A pesar de las dificultades, continuó anunciando el Evangelio.</p>
+          <p>El 28 de abril de 1841 fue asesinado en Futuna. Tenía solamente 37 años. Su muerte no significó el final de la misión: después de su martirio, muchas personas de Futuna comenzaron a acercarse al cristianismo y la fe se extendió por toda la isla. Fue recordado como el primer mártir de Oceanía.</p>
+          <p>Fue beatificado por el papa León XIII en 1889 y canonizado el 12 de junio de 1954 por el papa Pío XII.</p>
+          <p>Pedro Chanel nos enseña que ser misionero no significa solamente viajar a lugares lejanos, sino también aprender a conocer, amar y acompañar a las personas. La misión no siempre es fácil, pero cada gesto de amor, cada palabra de esperanza y cada servicio realizado con fe pueden transformar la vida de los demás.</p>
+          <p class="resumen">FE · SERVICIO · PERSEVERANCIA · ENTREGA</p>
+        </div>
+      </details>
+      <details class="patrono">
+        <summary>
+          <span class="continente">ASIA</span>
+          <span class="santo">Santa Teresa de Calcuta</span>
+          <span class="rol">Misionera por los más pobres</span>
+        </summary>
+        <div class="cuerpo">
+          <p>Nació el 26 de agosto de 1910 en Skopie. Su nombre era Anjezë Gonxhe Bojaxhiu y pertenecía a una familia de origen albanés. Creció en un hogar donde la fe y la solidaridad con los más necesitados eran muy importantes.</p>
+          <p>A los 18 años sintió el llamado de Dios y decidió ingresar a la congregación de las Hermanas de Loreto, en Irlanda. Poco después fue enviada a la India. En 1929 llegó a Darjeeling y más tarde a Calcuta, donde trabajó como maestra en una escuela para niñas.</p>
+          <p>En 1946, durante un viaje en tren, experimentó lo que describió como una profunda llamada de Jesús a servir a los más necesitados. En 1948 salió a las calles de Calcuta para acompañar y ayudar a las personas más vulnerables.</p>
+          <p>En 1950 fundó la congregación de las Misioneras de la Caridad, dedicada al servicio de los pobres, los enfermos, los huérfanos y las personas en situación de abandono. Con los años su obra se extendió por distintos países del mundo.</p>
+          <p>En 1979 recibió el Premio Nobel de la Paz por su trabajo en favor de las personas más pobres y necesitadas.</p>
+          <p>Falleció el 5 de septiembre de 1997 en Calcuta, India. Fue beatificada en 2003 por Juan Pablo II y canonizada el 4 de septiembre de 2016 por el papa Francisco.</p>
+          <p>Nos enseña que la misión no consiste solamente en viajar a lugares lejanos, sino en reconocer a Jesús en cada persona que necesita ayuda, compañía o una palabra de amor.</p>
+          <p class="cita">«No todos podemos hacer grandes cosas, pero sí podemos hacer pequeñas cosas con gran amor».</p>
+          <p class="resumen">ORACIÓN · SERVICIO · HUMILDAD · AMOR</p>
+        </div>
+      </details>
+      </article>
+    </section>
+
     <section id="herramientas" class="view content-view" data-view hidden>
       <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
       <article class="paper text-page tools">
@@ -366,6 +480,36 @@ Amén.</p>
           </ul>
           <p>El objetivo del Misionero es<br>ser instrumento de Dios para<br>encontrarse y encontrarnos con El.</p>
         </section>
+
+
+
+
+
+
+        <nav class="sub-grid" aria-label="Secciones de herramientas">
+          <a class="sub-card" href="#tips"><span>Tips del misionero</span></a>
+          <a class="sub-card" href="#rosario"><span>Rosario misionero</span></a>
+          <a class="sub-card pendiente" href="#modelos"><span>Modelos de misión</span></a>
+        </nav>
+
+        <section class="stages">
+          <h2>ETAPAS DE MI ENCUENTRO<br>CON EL OTRO</h2>
+          <div class="stage"><span>1</span><h3>ESPíRITU SANTO</h3><p>Invocar al Espíritu Santo en nuestro camino a la misión, pedirle por un corazón como el de Jesús Ileno de amor, misericordia y compasión hacia los demás, que el sea quien interceda por nosotros</p></div>
+          <div class="stage"><span>2</span><h3>SALUDO- PRESENTACIÓN</h3><p>Un saludo cordial y una presentación adecuada ayuda a generar un ambiente de confianza<br>Buen dia, buenas tardes, de donde soy, a que se debe mi visita, etc.</p></div>
+          <div class="stage"><span>3</span><h3>CONOCERSE</h3><p>Conocer a la persona/ familia crea una base solida para una relación significativa y un dialogo fluido Edad/ estudios/ trabajos/oficios/ hobbies/ gustos</p></div>
+          <div class="stage"><span>4</span><h3>COMPARTIR</h3><p>Compartir tiempo y experiencias con la familias y con el otro , el compartir tiene que ser de una manera bidireccional lo que nos ayudara a establecer confianza con ellos. Compartir como vivir la fe en la vida cotidiana puede ser un gran aliento</p></div>
+          <div class="stage"><span>5</span><h3>ESCUCHAR</h3><p>Cuando un misionero escucha con el corazon transmite una actitud de amor y compasión. Es muy importante una escucha atenta para poder adaptar un mensaje de Fe mas significativo para la persona</p></div>
+          <div class="stage"><span>6</span><h3>MENSAJES-CONSEJOS- CITAS BIBLICAS-REZAR- GESTOS MISIONEROS</h3><p>Llega el momento de dejarles un mensaje de Fe, de esperanza, de amor, compartir en familia alguna cita bíblica, poder rezar juntos, evangelizar al modo de Jesús hablando con el otro.Se pueden realizar gestos misioneros, como dejarles agua bendita, bocaditos, bendecir casas, entre otros.</p></div>
+          <div class="stage"><span>7</span><h3>AVISOS</h3><p>Dejarle la información a familias sobre misas/ talleres y cualquier otra información para que ellos puedan acercarse en base a sus tiempos.</p></div>
+          <div class="stage"><span>8</span><h3>DESPEDIDA</h3><p>Un corazón agradecido, es un corazón con amor, dar las gracias por abrir las puertas de su hogar y de sus vidas. Recordarles que pueden contar ustedes y con la comunidad para apoyarse en el camino de la Fé</p></div>
+        </section>
+      </article>
+    </section>
+
+    <section id="tips" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#herramientas" class="back">← Herramientas</a></div>
+      <article class="paper text-page">
+        <h1 class="big-title">Tips del<br>misionero</h1>
 
         <section class="tip-card orange">
           <div class="tip-heading">TIPS DEL MISIONERO</div>
@@ -414,18 +558,86 @@ Amén.</p>
             <p>La misión no termina una vez que salimos de las casas o nos quedamos sin casas para misionar, después sigue una misión personal entre nuestro mismo grupos, para así poder compartir y retroalimentarnos de los frutos de la misión</p>
           </div>
         </section>
+      </article>
+    </section>
 
-        <section class="stages">
-          <h2>ETAPAS DE MI ENCUENTRO<br>CON EL OTRO</h2>
-          <div class="stage"><span>1</span><h3>ESPíRITU SANTO</h3><p>Invocar al Espíritu Santo en nuestro camino a la misión, pedirle por un corazón como el de Jesús Ileno de amor, misericordia y compasión hacia los demás, que el sea quien interceda por nosotros</p></div>
-          <div class="stage"><span>2</span><h3>SALUDO- PRESENTACIÓN</h3><p>Un saludo cordial y una presentación adecuada ayuda a generar un ambiente de confianza<br>Buen dia, buenas tardes, de donde soy, a que se debe mi visita, etc.</p></div>
-          <div class="stage"><span>3</span><h3>CONOCERSE</h3><p>Conocer a la persona/ familia crea una base solida para una relación significativa y un dialogo fluido Edad/ estudios/ trabajos/oficios/ hobbies/ gustos</p></div>
-          <div class="stage"><span>4</span><h3>COMPARTIR</h3><p>Compartir tiempo y experiencias con la familias y con el otro , el compartir tiene que ser de una manera bidireccional lo que nos ayudara a establecer confianza con ellos. Compartir como vivir la fe en la vida cotidiana puede ser un gran aliento</p></div>
-          <div class="stage"><span>5</span><h3>ESCUCHAR</h3><p>Cuando un misionero escucha con el corazon transmite una actitud de amor y compasión. Es muy importante una escucha atenta para poder adaptar un mensaje de Fe mas significativo para la persona</p></div>
-          <div class="stage"><span>6</span><h3>MENSAJES-CONSEJOS- CITAS BIBLICAS-REZAR- GESTOS MISIONEROS</h3><p>Llega el momento de dejarles un mensaje de Fe, de esperanza, de amor, compartir en familia alguna cita bíblica, poder rezar juntos, evangelizar al modo de Jesús hablando con el otro.Se pueden realizar gestos misioneros, como dejarles agua bendita, bocaditos, bendecir casas, entre otros.</p></div>
-          <div class="stage"><span>7</span><h3>AVISOS</h3><p>Dejarle la información a familias sobre misas/ talleres y cualquier otra información para que ellos puedan acercarse en base a sus tiempos.</p></div>
-          <div class="stage"><span>8</span><h3>DESPEDIDA</h3><p>Un corazón agradecido, es un corazón con amor, dar las gracias por abrir las puertas de su hogar y de sus vidas. Recordarles que pueden contar ustedes y con la comunidad para apoyarse en el camino de la Fé</p></div>
-        </section>
+    <section id="rosario" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#herramientas" class="back">← Herramientas</a></div>
+      <article class="paper text-page">
+        <h1 class="big-title">Rosario<br>misionero</h1>
+        <p>El Rosario Misionero es una forma de oración que toma como base el Rosario tradicional, en la cual, por intercesión de María, se pide al Padre por las intenciones y necesidades de todo el mundo. Es una oración mariana, universal y misionera.</p>
+        <h2>¿En qué consiste?</h2>
+        <p>Consiste en rezar los cinco misterios de cada día teniendo presentes los cinco continentes, pensando en la situación concreta de cada uno desde el punto de vista de la evangelización y de la presencia cristiana, y orando por los misioneros y misioneras, por todos los agentes de la evangelización, y por todos los que aún no conocen la Buena Nueva de la salvación, para que se abran a la luz del Evangelio.</p>
+        <div class="divider"></div>
+        <div class="misterio m-verde">
+          <span class="continente">1.º misterio</span>
+          <h3>ÁFRICA</h3>
+          <p>El color verde nos recuerda las verdes selvas habitadas por nuestros hermanos africanos.</p>
+          <ul>
+            <li>Vive a diario con violencia: las tribus que la habitan se enfrentan a sangrientas guerras.</li>
+            <li>Hay mucho racismo entre personas negras y blancas, y muchos son tratados como esclavos.</li>
+            <li>Muchos países alcanzaron su independencia hace poco, tras ser víctimas del colonialismo europeo.</li>
+            <li>La pobreza está muy marcada: de los 47 países menos desarrollados del mundo, 31 son africanos.</li>
+            <li>Católicos: 112.871.000 personas. África envía 2.585 misioneros y recibe 14.748.</li>
+            <li>Patrona del continente: Nuestra Señora de África.</li>
+          </ul>
+        </div>
+        <div class="misterio m-rojo">
+          <span class="continente">2.º misterio</span>
+          <h3>AMÉRICA</h3>
+          <p>El color rojo simboliza la sangre derramada por los mártires que dieron su vida durante la evangelización de este continente.</p>
+          <ul>
+            <li>La pobreza, la marginación y la dependencia de los países potencia.</li>
+            <li>Las minorías indígenas sobrevivientes de la colonización.</li>
+            <li>El narcotráfico, la destrucción ecológica, el terrorismo y la corrupción, que hoy involucra a gobernantes de muchos países.</li>
+            <li>La Iglesia Católica de América es la más numerosa del mundo: el 60% son católicos.</li>
+            <li>América del Norte envía 8.193 misioneros y recibe 1.645. América del Sur envía 5.785 y recibe 12.011.</li>
+            <li>Patrona del continente: Nuestra Señora de Guadalupe.</li>
+          </ul>
+        </div>
+        <div class="misterio m-blanco">
+          <span class="continente">3.º misterio</span>
+          <h3>EUROPA</h3>
+          <p>El color blanco nos recuerda el color de las vestiduras del Papa, que tiene en este continente su sede.</p>
+          <ul>
+            <li>Fue continente católico por excelencia: la Iglesia tuvo su sede central en Roma desde sus comienzos.</li>
+            <li>Hoy solo el 40% es católico.</li>
+            <li>Europa sigue siendo la patria de la mayoría de los misioneros.</li>
+            <li>Europa envía 66.776 misioneros y recibe 7.764.</li>
+            <li>Patrona del continente: Nuestra Señora de Vladimir.</li>
+          </ul>
+        </div>
+        <div class="misterio m-azul">
+          <span class="continente">4.º misterio</span>
+          <h3>OCEANÍA</h3>
+          <p>El color azul nos habla de Oceanía, con sus miles de islas esparcidas en las azules aguas del Océano Pacífico.</p>
+          <ul>
+            <li>Su mosaico de razas, culturas y religiones. Desde hace siglos estuvo poblado por una gran cantidad de tribus nativas.</li>
+            <li>Los católicos representan el 27% de la población.</li>
+            <li>Oceanía envía 1.255 misioneros y recibe 1.047.</li>
+            <li>Patrona del continente: Nuestra Señora de la Cruz del Sur.</li>
+          </ul>
+        </div>
+        <div class="misterio m-amarillo">
+          <span class="continente">5.º misterio</span>
+          <h3>ASIA</h3>
+          <p>El color amarillo nos trae a la memoria el continente asiático.</p>
+          <ul>
+            <li>Es el continente más poblado del mundo.</li>
+            <li>La Iglesia Católica de Asia es la más pequeña: apenas el 2,9% de los asiáticos.</li>
+            <li>Los católicos son perseguidos y en muchos casos deben vivir su fe en la clandestinidad.</li>
+            <li>Asia envía 8.481 misioneros y recibe 6.306.</li>
+            <li>Patrona del continente: Nuestra Señora de Sheshan.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="modelos" class="view content-view" data-view hidden>
+      <div class="section-top"><a href="#herramientas" class="back">← Herramientas</a></div>
+      <article class="paper text-page">
+        <h1 class="big-title">Modelos<br>de misión</h1>
+        <p class="sin-resultados">Esta sección todavía no tiene contenido cargado.</p>
       </article>
     </section>
 

@@ -119,6 +119,52 @@ modulo('saltar al contenido', () => {
   });
 });
 
+modulo('buscador de oraciones', () => {
+  const campo = document.getElementById('buscarOracion');
+  const lista = document.getElementById('listaOraciones');
+  const vacio = document.getElementById('sinResultados');
+  if (!campo || !lista) return;
+
+  // Sin tildes y en minúscula, para que "maria" encuentre "María".
+  const normalizar = texto =>
+    texto.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+  const oraciones = [...lista.querySelectorAll('.plegable')]
+    .map(el => ({ el, texto: normalizar(el.textContent) }));
+  const grupos = [...lista.querySelectorAll('.grupo-oraciones')];
+
+  const filtrar = () => {
+    const busca = normalizar(campo.value.trim());
+    let visibles = 0;
+
+    oraciones.forEach(({ el, texto }) => {
+      const coincide = !busca || texto.includes(busca);
+      el.hidden = !coincide;
+      el.open = Boolean(busca) && coincide;
+      if (coincide) visibles++;
+    });
+
+    // Un título de grupo solo se muestra si le queda alguna oración debajo.
+    grupos.forEach(titulo => {
+      let siguiente = titulo.nextElementSibling;
+      let hayAlguna = false;
+      while (siguiente && !siguiente.classList.contains('grupo-oraciones')) {
+        if (siguiente.classList.contains('plegable') && !siguiente.hidden) {
+          hayAlguna = true;
+          break;
+        }
+        siguiente = siguiente.nextElementSibling;
+      }
+      titulo.hidden = !hayAlguna;
+    });
+
+    if (vacio) vacio.hidden = visibles > 0;
+  };
+
+  campo.addEventListener('input', filtrar);
+  filtrar();
+});
+
 modulo('mapas', () => {
   const dialogo = document.getElementById('mapDialog');
   const imagen = document.getElementById('dialogImage');
