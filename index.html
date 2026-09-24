@@ -36,7 +36,6 @@
       <a href="#inicio">Inicio</a>
       <a href="#lema">Lema de la MAJ</a>
       <a href="#oraciones">Oraciones y meditaciones</a>
-      <a href="#examen">Examen de conciencia</a>
       <a href="#himno">Himno MAJ</a>
       <a href="#patronos">Patronos de cada continente</a>
       <a href="#herramientas">Herramientas para el misionero</a>
@@ -68,13 +67,17 @@
       <div class="home-grid" aria-label="Apartados de la bitácora">
         <a class="nav-card" href="#lema"><span>Lema de la MAJ</span></a>
         <a class="nav-card" href="#oraciones"><span>Oraciones y meditaciones</span></a>
-        <a class="nav-card" href="#examen"><span>Examen de conciencia</span></a>
         <a class="nav-card" href="#himno"><span>Himno MAJ</span></a>
         <a class="nav-card" href="#patronos"><span>Patronos de cada continente</span></a>
         <a class="nav-card" href="#herramientas"><span>Herramientas para el misionero</span></a>
         <a class="nav-card" href="#zonas"><span>Zonas de misión</span></a>
         <a class="nav-card emergency-card" href="#telefonos"><span>Teléfonos de emergencia</span></a>
       </div>
+
+      <footer class="pie">
+        <span>Versión <b id="versionApp">—</b></span>
+        <button type="button" id="btnBuscarActualizacion">Buscar actualización</button>
+      </footer>
     </section>
 
     <section id="lema" class="view content-view" data-view hidden>
@@ -98,7 +101,7 @@
         </div>
 
         <div id="listaOraciones">
-          <h2 class="grupo-oraciones">Para la misión</h2>
+          <h2 class="grupo-oraciones">Oraciones para la misión</h2>
 
           <details class="plegable">
             <summary>Oración de la MAJ</summary>
@@ -163,7 +166,7 @@ guiando con su amor.<br>
 Amén.</p></div>
           </details>
 
-          <h2 class="grupo-oraciones">Para rezar en las casas</h2>
+          <h2 class="grupo-oraciones">Oraciones para las casas</h2>
 
           <details class="plegable">
             <summary>Por la bendición familiar</summary>
@@ -281,17 +284,13 @@ Vida.</p>
 tu paz.<br>
 Amén.</p></div>
           </details>
-        </div>
 
-        <p class="sin-resultados" id="sinResultados" hidden>No hay ninguna oración con esas palabras.</p>
-      </article>
-    </section>
+          <h2 class="grupo-oraciones">Meditaciones</h2>
 
-    <section id="examen" class="view content-view" data-view hidden>
-      <div class="section-top"><a href="#inicio" class="back">← Volver</a></div>
-      <article class="paper text-page">
-        <h1 class="pill">EXÁMEN DE CONCIENCIA</h1>
-        <h2>EXAMEN DE CONCIENCIA DEL PAPA FRANCISCO -<br>30 PREGUNTAS</h2>
+          <details class="plegable">
+            <summary>Examen de conciencia — 30 preguntas del papa Francisco</summary>
+            <div class="cuerpo">
+<h2>EXAMEN DE CONCIENCIA DEL PAPA FRANCISCO -<br>30 PREGUNTAS</h2>
         <h3>En relación a Dios</h3>
         <ol start="1">
           <li>¿Solo me dirijo a Dios en caso de necesidad?</li>
@@ -331,9 +330,15 @@ Amén.</p></div>
           <li>¿Nutro venganzas, alimento rencores?</li>
           <li>¿Soy misericordioso, humilde, y constructor de paz?</li>
         </ol>
+            </div>
+          </details>
+        </div>
+
+        <p class="sin-resultados" id="sinResultados" hidden>No hay ninguna oración con esas palabras.</p>
       </article>
     </section>
 
+    
 
 
     <section id="himno" class="view content-view" data-view hidden>
@@ -569,6 +574,10 @@ Amén.</p></div>
         <h2>¿En qué consiste?</h2>
         <p>Consiste en rezar los cinco misterios de cada día teniendo presentes los cinco continentes, pensando en la situación concreta de cada uno desde el punto de vista de la evangelización y de la presencia cristiana, y orando por los misioneros y misioneras, por todos los agentes de la evangelización, y por todos los que aún no conocen la Buena Nueva de la salvación, para que se abran a la luz del Evangelio.</p>
         <div class="divider"></div>
+        <figure class="lamina">
+          <img src="images/ui/rosario-continentes.jpg" alt="Rosario misionero: cada decena con el color de su continente sobre un mapa del mundo" width="900" height="1336" loading="lazy" decoding="async">
+          <figcaption>Cada decena lleva el color de su continente.</figcaption>
+        </figure>
         <div class="misterio m-verde">
           <span class="continente">1.º misterio</span>
           <h3>ÁFRICA</h3>

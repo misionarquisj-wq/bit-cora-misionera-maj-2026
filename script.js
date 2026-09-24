@@ -289,6 +289,26 @@ modulo('teléfonos', () => {
 modulo('aviso de actualización', () => {
   const boton = document.getElementById('btnActualizar');
   if (boton) boton.addEventListener('click', () => location.reload());
+
+  /* Botón manual: obliga al navegador a ir a buscar una versión nueva
+     en vez de esperar a que se le ocurra, y recarga. Es la salida
+     cuando alguien quedó con contenido viejo y no sabe por qué. */
+  const buscar = document.getElementById('btnBuscarActualizacion');
+  if (!buscar || !('serviceWorker' in navigator)) return;
+
+  buscar.addEventListener('click', async () => {
+    const textoOriginal = buscar.textContent;
+    buscar.textContent = 'Buscando…';
+    buscar.disabled = true;
+    try {
+      const registro = await navigator.serviceWorker.getRegistration();
+      if (registro) await registro.update();
+    } catch (error) {
+      console.error('No se pudo buscar actualización:', error);
+    }
+    setTimeout(() => location.reload(), 1200);
+    setTimeout(() => { buscar.textContent = textoOriginal; buscar.disabled = false; }, 4000);
+  });
 });
 
 /* Lo más importante de la app: que el misionero SEPA si ya puede
@@ -330,8 +350,11 @@ modulo('estado de la descarga', () => {
     if (trabajador) trabajador.postMessage({ tipo });
   }).catch(() => {});
 
+  const etiquetaVersion = document.getElementById('versionApp');
   navigator.serviceWorker.addEventListener('message', e => {
-    if (e.data && e.data.tipo) pintar(e.data);
+    if (!e.data || !e.data.tipo) return;
+    if (e.data.version && etiquetaVersion) etiquetaVersion.textContent = e.data.version;
+    pintar(e.data);
   });
 
   reintentar.addEventListener('click', () => pedirle('descargar'));

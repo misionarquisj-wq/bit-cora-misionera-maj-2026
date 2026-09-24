@@ -4,7 +4,7 @@
    tienen la Bitácora guardada NUNCA reciben la corrección.
    Usar la fecha del cambio: '2026-09-25a', '2026-09-25b', etc.
    ───────────────────────────────────────────────────────────── */
-const VERSION = '2026-09-24a';
+const VERSION = '2026-09-24c';
 
 const CACHE = `bitacora-${VERSION}`;
 
@@ -30,6 +30,7 @@ const NUCLEO = [
 const PESADO = [
   './images/ui/portada.png',
   './images/ui/oido.png',
+  './images/ui/rosario-continentes.jpg',
   './images/maps/map-015.jpg',
   './images/maps/map-016.jpg',
   './images/maps/map-017.jpg',
@@ -136,6 +137,7 @@ async function informarEstado() {
   }
   await avisar({
     tipo: 'estado',
+    version: VERSION,
     guardados,
     total: TODO.length,
     completo: guardados === TODO.length
