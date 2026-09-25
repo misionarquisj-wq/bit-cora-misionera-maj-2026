@@ -4,9 +4,15 @@
    tienen la Bitácora guardada NUNCA reciben la corrección.
    Usar la fecha del cambio: '2026-09-25a', '2026-09-25b', etc.
    ───────────────────────────────────────────────────────────── */
-const VERSION = '2026-09-25d';
+const VERSION = '2026-09-26a';
 
 const CACHE = `bitacora-${VERSION}`;
+
+/* Los mapas detallados van en una caché aparte y sin versión: pesan 10 MB
+   y no tendría sentido volver a bajarlos cada vez que se corrige un texto.
+   Solo se borran si alguien los borra a propósito. */
+const CACHE_MAPAS = 'bitacora-mapas-v1';
+const LISTA_TILES = './tiles/lista.json';
 
 // Lo imprescindible para que la app abra. Es chico y se baja de una.
 const NUCLEO = [
@@ -22,7 +28,11 @@ const NUCLEO = [
   './images/ui/icon-maskable-512-v2.png',
   './fonts/chewy.woff2',
   './fonts/fredoka-600.woff2',
-  './fonts/patrick-hand.woff2'
+  './fonts/patrick-hand.woff2',
+  './vendor/leaflet.js',
+  './vendor/leaflet.css',
+  './zonas.geojson',
+  './tiles/lista.json'
 ];
 
 // Lo pesado. Se baja después, de a poco y con reintentos, para que
@@ -71,7 +81,9 @@ async function guardarFresco(cache, url) {
 self.addEventListener('activate', e => {
   e.waitUntil((async () => {
     const claves = await caches.keys();
-    await Promise.all(claves.filter(k => k !== CACHE).map(k => caches.delete(k)));
+    await Promise.all(
+      claves.filter(k => k !== CACHE && k !== CACHE_MAPAS).map(k => caches.delete(k))
+    );
     await self.clients.claim();
   })());
 });
@@ -82,6 +94,9 @@ self.addEventListener('message', e => {
   const orden = (e.data && e.data.tipo) || '';
   if (orden === 'estado') e.waitUntil(informarEstado());
   if (orden === 'descargar') e.waitUntil(descargarPendientes());
+  if (orden === 'estado-mapas') e.waitUntil(informarMapas());
+  if (orden === 'descargar-mapas') e.waitUntil(descargarMapas());
+  if (orden === 'borrar-mapas') e.waitUntil(caches.delete(CACHE_MAPAS).then(informarMapas));
 });
 
 let descargaEnCurso = false;
@@ -146,6 +161,64 @@ async function avisar(mensaje) {
   ventanas.forEach(v => v.postMessage(mensaje));
 }
 
+/* ── Mapas detallados, descarga aparte ── */
+
+async function listaDeTiles() {
+  const cache = await caches.open(CACHE);
+  const guardada = await cache.match(LISTA_TILES);
+  const respuesta = guardada || await traerConLimiteDeTiempo(pedidoFresco(LISTA_TILES));
+  return respuesta.json();
+}
+
+async function informarMapas() {
+  let lista;
+  try { lista = await listaDeTiles(); }
+  catch (_) { return avisar({ tipo: 'mapas', guardados: 0, total: 0, completo: false }); }
+
+  const cache = await caches.open(CACHE_MAPAS);
+  const hay = (await cache.keys()).length;
+  await avisar({
+    tipo: 'mapas',
+    guardados: Math.min(hay, lista.length),
+    total: lista.length,
+    completo: hay >= lista.length
+  });
+}
+
+let bajandoMapas = false;
+
+async function descargarMapas() {
+  if (bajandoMapas) return;
+  bajandoMapas = true;
+
+  try {
+    const lista = await listaDeTiles();
+    const cache = await caches.open(CACHE_MAPAS);
+    const pendientes = [];
+    for (const t of lista) {
+      const url = `./tiles/${t}.jpg`;
+      if (!(await cache.match(url))) pendientes.push(url);
+    }
+
+    let guardados = lista.length - pendientes.length;
+    await avisar({ tipo: 'mapas-progreso', guardados, total: lista.length });
+
+    // Lotes más grandes que el contenido: son archivos chicos y son muchos.
+    const LOTE = 8;
+    for (let i = 0; i < pendientes.length; i += LOTE) {
+      const lote = pendientes.slice(i, i + LOTE);
+      const r = await Promise.allSettled(lote.map(u => guardarConReintentos(cache, u)));
+      guardados += r.filter(x => x.status === 'fulfilled' && x.value).length;
+      if (i % (LOTE * 5) === 0 || i + LOTE >= pendientes.length) {
+        await avisar({ tipo: 'mapas-progreso', guardados, total: lista.length });
+      }
+    }
+    await informarMapas();
+  } finally {
+    bajandoMapas = false;
+  }
+}
+
 const ARCHIVOS_DE_CODIGO = ['', 'index.html', 'style.css', 'script.js', 'manifest.webmanifest'];
 
 self.addEventListener('fetch', e => {
@@ -153,6 +226,11 @@ self.addEventListener('fetch', e => {
 
   const url = new URL(e.request.url);
   if (url.origin !== self.location.origin) return;
+
+  if (url.pathname.includes('/tiles/') && url.pathname.endsWith('.jpg')) {
+    e.respondWith(servirTile(e.request));
+    return;
+  }
 
   const archivo = url.pathname.split('/').pop();
   const esCodigo = e.request.mode === 'navigate' || ARCHIVOS_DE_CODIGO.includes(archivo);
@@ -189,6 +267,19 @@ async function servirDeCache(request) {
     return respuesta;
   } catch (_) {
     return respuestaDeEmergencia(request);
+  }
+}
+
+// Un pedacito de mapa que no está descargado no es un error: el mapa
+// simplemente muestra ese cuadrado en gris y se sigue usando.
+async function servirTile(request) {
+  const cache = await caches.open(CACHE_MAPAS);
+  const guardado = await cache.match(request);
+  if (guardado) return guardado;
+  try {
+    return await traerConLimiteDeTiempo(request);
+  } catch (_) {
+    return new Response('', { status: 404 });
   }
 }
 

@@ -300,6 +300,145 @@ modulo('estado de la descarga', () => {
 
 /* Instalarla en la pantalla de inicio es lo único que evita que
    iOS la borre a los 7 días y que Android la borre por espacio. */
+/* ── Mapas detallados: descarga opcional, aparte del contenido ──
+   Van en su propia caché para que no se borren cuando cambia la
+   versión del contenido. Si no están, la app funciona igual: se
+   siguen viendo las fotos de cada zona. */
+modulo('mapas detallados', () => {
+  const caja = document.getElementById('mapasOffline');
+  const titulo = document.getElementById('mapasTitulo');
+  const detalle = document.getElementById('mapasDetalle');
+  const boton = document.getElementById('btnDescargarMapas');
+  if (!caja || !boton || !('serviceWorker' in navigator)) return;
+
+  const botonesMapa = [...document.querySelectorAll('.abrir-mapa')];
+
+  const pedirle = tipo => navigator.serviceWorker.ready
+    .then(registro => {
+      const sw = registro.active || navigator.serviceWorker.controller;
+      if (sw) sw.postMessage({ tipo });
+    })
+    .catch(() => {});
+
+  const pintar = datos => {
+    if (datos.tipo === 'mapas-progreso') {
+      caja.dataset.estado = 'bajando';
+      const pct = datos.total ? Math.round(datos.guardados / datos.total * 100) : 0;
+      titulo.textContent = `Descargando mapas… ${pct}%`;
+      detalle.textContent = `${datos.guardados} de ${datos.total} pedazos. Podés seguir usando la app.`;
+      boton.disabled = true;
+      boton.textContent = 'Descargando…';
+      return;
+    }
+
+    const listos = datos.completo;
+    caja.dataset.estado = listos ? 'listo' : 'sin';
+    mapasListos = listos;
+    botonesMapa.forEach(b => { b.hidden = !listos; });
+
+    if (listos) {
+      titulo.textContent = 'Mapas detallados listos';
+      detalle.textContent = 'Ya podés abrir el mapa de cada zona sin señal.';
+      boton.hidden = true;
+    } else {
+      titulo.textContent = 'Mapas detallados';
+      detalle.textContent = 'Para ver tu zona con las calles y tu propia ubicación, sin señal. Unos 10 MB, se descargan una sola vez.';
+      boton.hidden = false;
+      boton.disabled = false;
+      boton.textContent = 'Descargar mapas';
+    }
+  };
+
+  navigator.serviceWorker.addEventListener('message', e => {
+    if (e.data && (e.data.tipo === 'mapas' || e.data.tipo === 'mapas-progreso')) pintar(e.data);
+  });
+
+  boton.addEventListener('click', () => pedirle('descargar-mapas'));
+  pedirle('estado-mapas');
+});
+
+let mapasListos = false;
+
+modulo('mapa interactivo', () => {
+  const dialogo = document.getElementById('mapaDialog');
+  const lienzo = document.getElementById('mapaLienzo');
+  const etiqueta = document.getElementById('mapaZona');
+  const aviso = document.getElementById('mapaAviso');
+  const cerrar = document.getElementById('cerrarMapa');
+  const ubicar = document.getElementById('miUbicacion');
+  if (!dialogo || !lienzo || typeof dialogo.showModal !== 'function') return;
+  if (typeof L === 'undefined') return;
+
+  let mapa, capaZonas, marcaYo, figuras;
+
+  const cargarFiguras = async () => {
+    if (figuras) return figuras;
+    figuras = await fetch('./zonas.geojson').then(r => r.json());
+    return figuras;
+  };
+
+  const abrir = async zona => {
+    etiqueta.textContent = 'Zona ' + zona;
+    dialogo.showModal();
+
+    if (!mapa) {
+      mapa = L.map(lienzo, { zoomControl: true, attributionControl: true });
+      L.tileLayer('./tiles/{z}/{x}/{y}.jpg', {
+        minZoom: 12, maxZoom: 19, maxNativeZoom: 17,
+        attribution: 'Imagen satelital: Esri, Maxar, Earthstar Geographics'
+      }).addTo(mapa);
+    }
+
+    const datos = await cargarFiguras();
+    const propias = {
+      type: 'FeatureCollection',
+      features: datos.features.filter(f => f.properties.zona === zona)
+    };
+    if (capaZonas) capaZonas.remove();
+    capaZonas = L.geoJSON(propias, {
+      style: f => ({ color: f.properties.color, weight: 3, fillOpacity: 0.28 }),
+      pointToLayer: (f, latlng) => L.circleMarker(latlng, {
+        radius: 8, color: '#fff', weight: 3, fillColor: f.properties.color, fillOpacity: 1
+      })
+    }).addTo(mapa);
+    capaZonas.eachLayer(c => c.bindPopup(c.feature.properties.nombre));
+
+    // showModal recién dimensiona el contenedor al abrirse
+    setTimeout(() => {
+      mapa.invalidateSize();
+      mapa.fitBounds(capaZonas.getBounds(), { padding: [24, 24] });
+    }, 60);
+  };
+
+  document.querySelectorAll('.abrir-mapa').forEach(b => {
+    b.addEventListener('click', () => abrir(Number(b.dataset.zona)));
+  });
+
+  if (cerrar) cerrar.addEventListener('click', () => dialogo.close());
+
+  if (ubicar) ubicar.addEventListener('click', () => {
+    if (!navigator.geolocation) {
+      aviso.textContent = 'Este teléfono no permite ver la ubicación.';
+      aviso.hidden = false;
+      return;
+    }
+    aviso.textContent = 'Buscando tu ubicación…';
+    aviso.hidden = false;
+    navigator.geolocation.getCurrentPosition(pos => {
+      const p = [pos.coords.latitude, pos.coords.longitude];
+      if (marcaYo) marcaYo.remove();
+      marcaYo = L.circleMarker(p, {
+        radius: 9, color: '#fff', weight: 3, fillColor: '#1a73e8', fillOpacity: 1
+      }).addTo(mapa).bindPopup('Estás acá');
+      mapa.setView(p, Math.max(mapa.getZoom(), 17));
+      aviso.hidden = true;
+    }, () => {
+      aviso.textContent = 'No se pudo obtener la ubicación. Revisá que el GPS esté encendido y que le hayas dado permiso.';
+      aviso.hidden = false;
+    }, { enableHighAccuracy: true, timeout: 12000 });
+  });
+});
+
 modulo('instalar en el teléfono', () => {
   const caja = document.getElementById('instalar');
   const pasos = document.getElementById('instalarPasos');

@@ -14,6 +14,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Bitácora MAJ">
+  <link rel="stylesheet" href="vendor/leaflet.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -657,7 +658,15 @@ Amén.</p></div>
       <article class="paper maps-page">
         <h1 class="big-title">ZONAS DE MISION</h1>
 
-                <p class="nota-zonas">Los colores de la lista son los mismos que están dibujados sobre la foto del mapa. Cada lugar tiene su enlace para abrirlo en Google Maps. Esos enlaces <strong>necesitan señal</strong>; las fotos de acá quedan guardadas en el teléfono.</p>
+                <div class="mapas-offline" id="mapasOffline" data-estado="sin">
+          <div class="mapas-texto">
+            <strong id="mapasTitulo">Mapas detallados</strong>
+            <p id="mapasDetalle">Para ver tu zona con las calles y tu propia ubicación, sin señal. Unos 10 MB, se descargan una sola vez.</p>
+          </div>
+          <button type="button" id="btnDescargarMapas">Descargar mapas</button>
+        </div>
+
+        <p class="nota-zonas">Los colores de la lista son los mismos que están dibujados sobre la foto del mapa. Cada lugar tiene su enlace para abrirlo en Google Maps. Esos enlaces <strong>necesitan señal</strong>; las fotos de acá quedan guardadas en el teléfono.</p>
 
         <section class="zone">
           <h2>Zona 1 · Virgen de la Paz — Médanos</h2>
@@ -678,6 +687,7 @@ Amén.</p></div>
               <ul class="barrios">
             <li class="barrio"><span class="marca c-verde"></span><span class="barrio-nombre">Escuela José María de los Ríos</span><a class="ver-punto" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-31.640657,-68.23657">Ver en Maps</a></li>
               </ul>
+              <button class="abrir-mapa" type="button" data-zona="1" hidden>Abrir mapa interactivo</button>
               <button class="map-button" data-map="images/maps/zona-1.jpg"><img src="images/maps/zona-1.jpg" alt="Mapa de la zona 1" width="920" height="1129" loading="lazy" decoding="async"></button>
               <a class="ver-mapa" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1QPMT7wK56YEtjJseDi8lr-U9dceN-Mc">Ver todas las zonas en Google Maps</a>
             </div>
@@ -729,6 +739,7 @@ Amén.</p></div>
               <ul class="barrios">
             <li class="barrio"><span class="marca c-celeste"></span><span class="barrio-nombre">Capilla La Merced</span><a class="ver-punto" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-31.655546,-68.219432">Ver en Maps</a></li>
               </ul>
+              <button class="abrir-mapa" type="button" data-zona="2" hidden>Abrir mapa interactivo</button>
               <button class="map-button" data-map="images/maps/zona-2.jpg"><img src="images/maps/zona-2.jpg" alt="Mapa de la zona 2" width="920" height="1391" loading="lazy" decoding="async"></button>
               <a class="ver-mapa" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1QPMT7wK56YEtjJseDi8lr-U9dceN-Mc">Ver todas las zonas en Google Maps</a>
             </div>
@@ -779,6 +790,7 @@ Amén.</p></div>
               <ul class="barrios">
             <li class="barrio"><span class="marca c-amarillo"></span><span class="barrio-nombre">Capilla Jesús Misericordioso</span><a class="ver-punto" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-31.665806,-68.244827">Ver en Maps</a></li>
               </ul>
+              <button class="abrir-mapa" type="button" data-zona="3" hidden>Abrir mapa interactivo</button>
               <button class="map-button" data-map="images/maps/zona-3.jpg"><img src="images/maps/zona-3.jpg" alt="Mapa de la zona 3" width="920" height="259" loading="lazy" decoding="async"></button>
               <a class="ver-mapa" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1QPMT7wK56YEtjJseDi8lr-U9dceN-Mc">Ver todas las zonas en Google Maps</a>
             </div>
@@ -830,6 +842,7 @@ Amén.</p></div>
               <ul class="barrios">
             <li class="barrio"><span class="marca c-verde"></span><span class="barrio-nombre">Lugar de almuerzo</span><a class="ver-punto" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-31.702616,-68.214782">Ver en Maps</a></li>
               </ul>
+              <button class="abrir-mapa" type="button" data-zona="4" hidden>Abrir mapa interactivo</button>
               <button class="map-button" data-map="images/maps/zona-4.jpg"><img src="images/maps/zona-4.jpg" alt="Mapa de la zona 4" width="920" height="419" loading="lazy" decoding="async"></button>
               <a class="ver-mapa" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1QPMT7wK56YEtjJseDi8lr-U9dceN-Mc">Ver todas las zonas en Google Maps</a>
             </div>
@@ -877,6 +890,7 @@ Amén.</p></div>
               <ul class="barrios">
             <li class="barrio"><span class="marca c-rojo"></span><span class="barrio-nombre">Capilla de Guadalupe</span><a class="ver-punto" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-31.664967,-68.306195">Ver en Maps</a></li>
               </ul>
+              <button class="abrir-mapa" type="button" data-zona="5" hidden>Abrir mapa interactivo</button>
               <button class="map-button" data-map="images/maps/zona-5.jpg"><img src="images/maps/zona-5.jpg" alt="Mapa de la zona 5" width="920" height="929" loading="lazy" decoding="async"></button>
               <a class="ver-mapa" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1QPMT7wK56YEtjJseDi8lr-U9dceN-Mc">Ver todas las zonas en Google Maps</a>
             </div>
@@ -929,6 +943,7 @@ Amén.</p></div>
               <ul class="barrios">
             <li class="barrio"><span class="marca c-amarillo"></span><span class="barrio-nombre">Capilla San Isidro</span><a class="ver-punto" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-31.591861,-68.30413">Ver en Maps</a></li>
               </ul>
+              <button class="abrir-mapa" type="button" data-zona="6" hidden>Abrir mapa interactivo</button>
               <button class="map-button" data-map="images/maps/zona-6.jpg"><img src="images/maps/zona-6.jpg" alt="Mapa de la zona 6" width="920" height="1160" loading="lazy" decoding="async"></button>
               <a class="ver-mapa" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1QPMT7wK56YEtjJseDi8lr-U9dceN-Mc">Ver todas las zonas en Google Maps</a>
             </div>
@@ -984,6 +999,7 @@ Amén.</p></div>
               <ul class="barrios">
             <li class="barrio"><span class="marca c-rojo"></span><span class="barrio-nombre">Merendero Esperanza</span><a class="ver-punto" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-31.667001,-68.277424">Ver en Maps</a></li>
               </ul>
+              <button class="abrir-mapa" type="button" data-zona="7" hidden>Abrir mapa interactivo</button>
               <button class="map-button" data-map="images/maps/zona-7.jpg"><img src="images/maps/zona-7.jpg" alt="Mapa de la zona 7" width="920" height="1138" loading="lazy" decoding="async"></button>
               <a class="ver-mapa" target="_blank" rel="noopener" href="https://www.google.com/maps/d/viewer?mid=1QPMT7wK56YEtjJseDi8lr-U9dceN-Mc">Ver todas las zonas en Google Maps</a>
             </div>
@@ -1055,6 +1071,16 @@ Amén.</p></div>
     </section>
   </main>
 
+  <dialog id="mapaDialog" class="mapa-dialog">
+    <div class="dialog-barra">
+      <span class="dialog-nivel" id="mapaZona">Zona</span>
+      <button class="dialog-btn" type="button" id="miUbicacion" aria-label="Ver mi ubicación">◎</button>
+      <button class="dialog-btn" type="button" id="cerrarMapa" aria-label="Cerrar mapa">×</button>
+    </div>
+    <div id="mapaLienzo"></div>
+    <p class="mapa-aviso" id="mapaAviso" hidden></p>
+  </dialog>
+
   <dialog id="mapDialog" class="map-dialog">
     <div class="dialog-barra">
       <button class="dialog-btn" type="button" id="zoomMenos" aria-label="Alejar el mapa">−</button>
@@ -1072,6 +1098,7 @@ Amén.</p></div>
     <button type="button" id="btnActualizar">Recargar</button>
   </div>
 
+  <script src="vendor/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

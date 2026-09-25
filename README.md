@@ -36,7 +36,10 @@ otro cambio, `2026-09-25b`.
 | `script.js` | Navegación, menú, visor de mapas, teléfonos, estado de descarga |
 | `sw.js` | Funcionamiento sin conexión. **Acá está `VERSION`** |
 | `manifest.webmanifest` | Datos para instalarla en el teléfono |
-| `images/` | Portada, íconos y los 10 mapas de zona |
+| `images/` | Portada, íconos y los 7 mapas de zona |
+| `tiles/` | Los 710 pedacitos del mapa satelital para usar sin señal |
+| `vendor/` | Leaflet, la librería del mapa interactivo (autoalojada) |
+| `zonas.geojson` | Las figuras de las zonas, exportadas del mapa de Google |
 
 ## Si agregás o sacás una imagen
 
@@ -99,6 +102,21 @@ Repetir en **un iPhone y un Android**, no en uno solo.
 3. Esperar el cartel verde antes de irse.
 
 ---
+
+## Los mapas detallados
+
+Son 710 imágenes de 256×256 en `tiles/`, unos 9,6 MB. **No se descargan con el
+resto**: van en una caché aparte (`bitacora-mapas-v1`) y solo cuando alguien
+toca el botón dentro de Zonas de misión.
+
+Están aparte a propósito. Si fueran con el resto, cada corrección de un texto
+obligaría a los 350 a volver a bajar 10 MB, y una descarga fallida dejaría a
+alguien sin oraciones ni teléfonos. Así, si los mapas fallan, la bitácora sigue
+entera.
+
+Si hiciera falta regenerarlos (porque cambian las zonas), están los guiones en
+el historial de esta conversación: se baja el KML del mapa de Google, se calcula
+qué pedacitos hacen falta y se descargan recomprimidos.
 
 ## Pendiente
 
