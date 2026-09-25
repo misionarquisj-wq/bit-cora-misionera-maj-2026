@@ -138,6 +138,7 @@ contra su política de uso, que son donados.
   coordinadores. Si alguna vez se quieren sacar esos números, hay que quitar
   también esa etiqueta.
 - "Cronograma" está creado pero vacío, esperando el contenido.
+- "Modelos de misión" también está creado y vacío.
 - La navegación está declarada en tres lugares (menú lateral, tarjetas del
   inicio y las secciones). Si se agrega un apartado hay que tocarlos los tres.
 - "Modelos de misión" está creado pero vacío, esperando el contenido.
