@@ -102,9 +102,13 @@ Repetir en **un iPhone y un Android**, no en uno solo.
 
 ## Pendiente
 
-- Los datos de contacto de la misión (coordinador, responsable, hospital) los
-  carga cada uno a mano en la pantalla de Teléfonos. Los números nacionales
-  (911, 100, 101, 107) ya vienen cargados y no se editan.
+- Teléfonos se entra solo por el ícono rojo de arriba a la derecha: no tiene
+  tarjeta en el inicio. Los números están fijos en `index.html`, no se editan
+  desde la app.
+- La página lleva `robots: noindex` porque publica teléfonos personales de los
+  coordinadores. Si alguna vez se quieren sacar esos números, hay que quitar
+  también esa etiqueta.
+- "Cronograma" está creado pero vacío, esperando el contenido.
 - La navegación está declarada en tres lugares (menú lateral, tarjetas del
   inicio y las secciones). Si se agrega un apartado hay que tocarlos los tres.
 - "Modelos de misión" está creado pero vacío, esperando el contenido.

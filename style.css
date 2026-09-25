@@ -241,6 +241,8 @@ main{min-height:calc(100svh - 64px)}
 .dialog-lienzo img{margin:auto;flex:none;display:block;width:calc(100% * var(--zoom,1));max-width:none;height:auto}
 
 /* ── Teléfonos ── */
+.icon-emergencia{background:var(--rojo);color:#fff}
+.coordis{border-top:1px solid var(--borde);padding-top:24px}
 .emergency-page{max-width:650px;margin:auto}
 .emergency-page h2{font-size:1.05rem;color:var(--malva-hondo);margin:0 0 12px}
 .fijos{margin:0 0 26px}
