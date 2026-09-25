@@ -219,7 +219,8 @@ main{min-height:calc(100svh - 64px)}
 /* ── Zonas ── */
 .nota-zonas{font-size:.95rem;line-height:1.6;color:var(--tinta-suave);background:var(--tint);border-radius:14px;padding:14px 16px;margin:0 0 8px}
 .barrios{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:9px}
-.barrio{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.barrio{display:flex;align-items:center;gap:10px}
+.barrio .barrio-nombre{flex:1;min-width:0}
 .barrio-nombre{font-family:var(--f-subtitulo);font-size:.95rem}
 .marca{width:19px;height:19px;flex:none;border-radius:5px;border:1px solid rgba(0,0,0,.28)}
 .marca-roja{background:var(--rojo)}
@@ -237,7 +238,16 @@ main{min-height:calc(100svh - 64px)}
 .horarios{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
 .horarios li{display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:baseline}
 .horarios .hora{font-family:var(--f-datos);font-size:.82rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--malva);background:var(--tint);border-radius:999px;padding:4px 10px;text-align:center}
-.marca-sin{background:var(--tint)}
+.c-rojo{background:#ca2435}
+.c-celeste{background:#3fa9dd}
+.c-amarillo{background:#fada3f}
+.c-verde{background:#7c9f21}
+.c-malva{background:#825574}
+.c-naranja{background:#e8842c}
+.c-rosa{background:#e68a93}
+.c-lila{background:#c7a4d3}
+.c-blanco{background:#ffffff}
+.ver-punto{margin-left:auto;font-family:var(--f-datos);font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--malva);background:var(--tint);border-radius:999px;padding:6px 12px;text-decoration:none;white-space:nowrap}
 .zone{padding:30px 0;border-top:1px solid var(--borde)}
 .zone:first-of-type{border-top:0}
 .zone h2{margin:0 0 10px;color:var(--malva-hondo);font-size:1.15rem}

@@ -4,7 +4,7 @@
    tienen la Bitácora guardada NUNCA reciben la corrección.
    Usar la fecha del cambio: '2026-09-25a', '2026-09-25b', etc.
    ───────────────────────────────────────────────────────────── */
-const VERSION = '2026-09-25c';
+const VERSION = '2026-09-25d';
 
 const CACHE = `bitacora-${VERSION}`;
 
@@ -31,16 +31,13 @@ const PESADO = [
   './images/ui/portada.png',
   './images/ui/oido.png',
   './images/ui/rosario-continentes.jpg',
-  './images/maps/map-015.jpg',
-  './images/maps/map-016.jpg',
-  './images/maps/map-017.jpg',
-  './images/maps/map-018.jpg',
-  './images/maps/map-019.jpg',
-  './images/maps/map-020.jpg',
-  './images/maps/map-021.jpg',
-  './images/maps/map-022.jpg',
-  './images/maps/map-023.jpg',
-  './images/maps/map-024.jpg'
+  './images/maps/zona-1.jpg',
+  './images/maps/zona-2.jpg',
+  './images/maps/zona-3.jpg',
+  './images/maps/zona-4.jpg',
+  './images/maps/zona-5.jpg',
+  './images/maps/zona-6.jpg',
+  './images/maps/zona-7.jpg'
 ];
 
 const TODO = [...NUCLEO, ...PESADO];
