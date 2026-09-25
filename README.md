@@ -37,7 +37,8 @@ otro cambio, `2026-09-25b`.
 | `sw.js` | Funcionamiento sin conexión. **Acá está `VERSION`** |
 | `manifest.webmanifest` | Datos para instalarla en el teléfono |
 | `images/` | Portada, íconos y los 7 mapas de zona |
-| `tiles/` | Los 710 pedacitos del mapa satelital para usar sin señal |
+| `tiles/` | Los 2041 pedacitos del mapa satelital para usar sin señal |
+| `calles.json` | Nombres de calle sacados de OpenStreetMap, para dibujar sobre el mapa |
 | `vendor/` | Leaflet, la librería del mapa interactivo (autoalojada) |
 | `zonas.geojson` | Las figuras de las zonas, exportadas del mapa de Google |
 
@@ -105,7 +106,7 @@ Repetir en **un iPhone y un Android**, no en uno solo.
 
 ## Los mapas detallados
 
-Son 710 imágenes de 256×256 en `tiles/`, unos 9,6 MB. **No se descargan con el
+Son 2041 imágenes de 256×256 en `tiles/`, unos 19 MB (zoom 12 a 18). **No se descargan con el
 resto**: van en una caché aparte (`bitacora-mapas-v1`) y solo cuando alguien
 toca el botón dentro de Zonas de misión.
 
@@ -117,6 +118,16 @@ entera.
 Si hiciera falta regenerarlos (porque cambian las zonas), están los guiones en
 el historial de esta conversación: se baja el KML del mapa de Google, se calcula
 qué pedacitos hacen falta y se descargan recomprimidos.
+
+## Los nombres de calle
+
+No son imágenes: es `calles.json`, 43 KB con el trazo y el nombre de cada calle,
+bajados de OpenStreetMap. Se dibujan encima del satélite y aparecen recién al
+acercarse (zoom 16 o más), para que no tapen todo.
+
+Se hizo así en vez de bajar mosaicos de mapa callejero por dos razones: pesa 43 KB
+en vez de 2 MB, y bajar mosaicos en cantidad de los servidores de OpenStreetMap va
+contra su política de uso, que son donados.
 
 ## Pendiente
 

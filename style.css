@@ -47,7 +47,8 @@
   --ok:#4f6b33;
   --alerta:#a83726;
 
-  --sombra:0 10px 30px rgba(78,43,62,.12);
+  --sombra:0 1px 2px rgba(78,43,62,.05), 0 8px 24px rgba(78,43,62,.07);
+  --hairline:rgba(60,40,55,.12);
 
   --f-titulo:"Titulo MAJ","Chewy",system-ui,sans-serif;
   --f-subtitulo:"Subtitulo MAJ","Fredoka",system-ui,sans-serif;
@@ -98,19 +99,32 @@ h1,h2,h3{font-family:var(--f-subtitulo);font-weight:600;line-height:1.2;text-wra
 main{min-height:calc(100svh - 64px)}
 .view{width:min(100%,980px);margin:auto;padding:18px calc(14px + env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom)) calc(14px + env(safe-area-inset-left))}
 .home-view{padding-top:0}
-.cover{display:block;width:100%;max-height:34svh;object-fit:contain;background:var(--hueso);margin:auto;padding:12px 0}
 .section-top{display:flex;margin:0 0 14px}
 .back{text-decoration:none;color:var(--malva-hondo);font-family:var(--f-subtitulo);font-size:.9rem;padding:9px 14px;border-radius:12px;background:var(--tint)}
-.paper{background:#fff;border:1px solid var(--borde);border-radius:24px;box-shadow:var(--sombra);padding:clamp(18px,5vw,48px)}
+.paper{background:#fff;border:0;border-radius:20px;box-shadow:var(--sombra);padding:clamp(18px,5vw,48px)}
 .narrow{max-width:650px;margin:auto}
 .centered{text-align:center;min-height:55svh;display:grid;align-content:center;justify-items:center;gap:32px}
 
+/* ── Saludo del inicio ── */
+.bienvenida{text-align:center;padding:34px 8px 26px;display:grid;justify-items:center;gap:6px}
+.bienvenida-logo{width:64px;height:auto;margin-bottom:6px}
+.bienvenida h1{font-family:var(--f-titulo);font-weight:400;font-size:clamp(2rem,8vw,2.6rem);line-height:1.05;color:var(--malva);margin:0}
+.bienvenida p{margin:0;max-width:34ch;font-size:1.02rem;line-height:1.5;color:var(--tinta-suave)}
+.bienvenida-nota{font-family:var(--f-subtitulo);font-size:.88rem!important;color:var(--malva)!important;margin-top:8px!important}
+
 /* ── Tarjetas del inicio ── */
-.home-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
-.nav-card{display:flex;align-items:center;min-height:72px;padding:16px 18px;border-radius:18px;background:#fff;text-decoration:none;color:var(--malva-hondo);font-family:var(--f-subtitulo);font-size:1rem;line-height:1.25;box-shadow:var(--sombra);border:1px solid var(--borde)}
-.nav-card::after{content:"›";margin-left:auto;padding-left:12px;font-size:1.8rem;color:var(--lila)}
-.emergency-card{border-style:dashed;border-color:var(--rojo)}
-.emergency-card::after{color:var(--rosa)}
+.home-grid{display:grid;grid-template-columns:1fr;gap:0;margin-top:6px;background:#fff;border-radius:20px;box-shadow:var(--sombra);overflow:hidden}
+.nav-card{display:flex;align-items:center;gap:14px;min-height:64px;padding:13px 16px;background:#fff;text-decoration:none;color:var(--tinta);font-family:var(--f-subtitulo);font-size:1rem;line-height:1.25;transition:background .18s cubic-bezier(.32,.72,0,1)}
+.nav-card+.nav-card{box-shadow:inset 0 1px 0 var(--hairline)}
+.nav-card:active{background:var(--tint)}
+.nav-icono{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--malva-hondo)}
+.nav-icono svg{width:21px;height:21px}
+.t-lila{background:var(--lila)}
+.t-verde{background:var(--verde-suave)}
+.t-verdes{background:var(--amarillo-suave)}
+.t-rosa{background:var(--rosa)}
+.t-amarillo{background:var(--amarillo-suave)}
+.nav-card::after{content:"›";margin-left:auto;padding-left:10px;font-size:1.5rem;color:var(--tinta-suave);opacity:.5}
 
 .pie{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;margin:26px 0 6px;font-family:var(--f-datos);font-size:.78rem;color:var(--tinta-suave)}
 .pie b{font-variant-numeric:tabular-nums;color:var(--malva-hondo)}
@@ -146,7 +160,7 @@ main{min-height:calc(100svh - 64px)}
 .grupo-oraciones:first-child{margin-top:0}
 .sin-resultados{text-align:center;color:var(--tinta-suave);padding:24px 0;margin:0}
 
-.plegable{border:1px solid var(--borde);border-radius:16px;background:#fff;margin:0 0 10px;overflow:hidden}
+.plegable{border:0;border-radius:14px;background:var(--hueso);margin:0 0 8px;overflow:hidden}
 .plegable>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:12px;font-family:var(--f-subtitulo);font-size:.98rem;line-height:1.3;color:var(--malva-hondo)}
 .plegable>summary::-webkit-details-marker{display:none}
 .plegable>summary::after{content:"▾";margin-left:auto;color:var(--lila);font-size:1.1rem;transition:transform .18s ease}
@@ -160,7 +174,7 @@ main{min-height:calc(100svh - 64px)}
 .tool-section{padding-bottom:28px;border-bottom:1px solid var(--borde)}
 .tool-section ul{padding-left:1.4rem}
 .sub-grid{display:grid;gap:12px;margin:26px 0 30px}
-.sub-card{display:flex;align-items:center;min-height:68px;padding:15px 18px;border-radius:16px;background:#fff;border:1px solid var(--borde);box-shadow:var(--sombra);text-decoration:none;color:var(--malva-hondo);font-family:var(--f-subtitulo);font-size:.97rem}
+.sub-card{display:flex;align-items:center;min-height:64px;padding:14px 18px;border-radius:14px;background:var(--hueso);border:0;text-decoration:none;color:var(--malva-hondo);font-family:var(--f-subtitulo);font-size:.97rem}
 .sub-card::after{content:"›";margin-left:auto;padding-left:12px;font-size:1.6rem;color:var(--lila)}
 .pendiente{opacity:.62}
 .pendiente::after{content:"pendiente";font-family:var(--f-datos);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-suave);background:var(--tint);border-radius:999px;padding:4px 10px}
@@ -234,6 +248,7 @@ main{min-height:calc(100svh - 64px)}
 .mapa-aviso{position:fixed;z-index:1200;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));margin:0;padding:12px 16px;border-radius:12px;background:rgba(17,17,17,.94);color:#fff;font-size:.9rem;line-height:1.45;text-align:center}
 .leaflet-container{font-family:var(--f-datos)}
 .leaflet-popup-content{font-family:var(--f-subtitulo);font-size:.9rem}
+.nombre-calle{font-family:var(--f-datos);font-size:11px;font-weight:700;color:#fff;white-space:nowrap;text-shadow:0 0 3px #000,0 0 6px #000;width:auto!important;height:auto!important;margin:0!important;transform:translate(-50%,-50%)}
 
 /* ── Zonas ── */
 .nota-zonas{font-size:.95rem;line-height:1.6;color:var(--tinta-suave);background:var(--tint);border-radius:14px;padding:14px 16px;margin:0 0 8px}
@@ -310,7 +325,6 @@ main{min-height:calc(100svh - 64px)}
 .aviso-actualizacion button{flex:none;min-height:42px;border:0;border-radius:11px;padding:8px 18px;background:#fff;color:var(--malva-hondo);font-family:var(--f-subtitulo);font-size:.92rem;cursor:pointer}
 
 @media(min-width:620px){
-  .home-grid{grid-template-columns:1fr 1fr}
   .sub-grid{grid-template-columns:1fr 1fr}
   .hymn-cols{grid-template-columns:1fr 1fr}
   .map-grid{grid-template-columns:1fr 1fr}

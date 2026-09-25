@@ -369,7 +369,34 @@ modulo('mapa interactivo', () => {
   if (!dialogo || !lienzo || typeof dialogo.showModal !== 'function') return;
   if (typeof L === 'undefined') return;
 
-  let mapa, capaZonas, marcaYo, figuras;
+  let mapa, capaZonas, capaCalles, marcaYo, figuras, calles;
+
+  const cargarCalles = async () => {
+    if (calles) return calles;
+    try { calles = (await fetch('./calles.json').then(r => r.json())).calles; }
+    catch (_) { calles = []; }
+    return calles;
+  };
+
+  /* Los nombres tapan todo si se muestran siempre: aparecen recién
+     cuando estás lo bastante cerca como para que sirvan. */
+  const pintarCalles = () => {
+    if (!capaCalles || !calles) return;
+    capaCalles.clearLayers();
+    if (mapa.getZoom() < 16) return;
+
+    const vista = mapa.getBounds();
+    calles.forEach(via => {
+      const puntos = via.c.map(p => [p[1], p[0]]);
+      if (!puntos.some(p => vista.contains(p))) return;
+      L.polyline(puntos, { color: '#fff', weight: 2, opacity: 0.45 }).addTo(capaCalles);
+      const medio = puntos[Math.floor(puntos.length / 2)];
+      L.marker(medio, {
+        interactive: false,
+        icon: L.divIcon({ className: 'nombre-calle', html: via.n, iconSize: null })
+      }).addTo(capaCalles);
+    });
+  };
 
   const cargarFiguras = async () => {
     if (figuras) return figuras;
@@ -384,12 +411,15 @@ modulo('mapa interactivo', () => {
     if (!mapa) {
       mapa = L.map(lienzo, { zoomControl: true, attributionControl: true });
       L.tileLayer('./tiles/{z}/{x}/{y}.jpg', {
-        minZoom: 12, maxZoom: 19, maxNativeZoom: 17,
-        attribution: 'Imagen satelital: Esri, Maxar, Earthstar Geographics'
+        minZoom: 12, maxZoom: 20, maxNativeZoom: 18,
+        attribution: 'Esri, Maxar · nombres © OpenStreetMap'
       }).addTo(mapa);
+      capaCalles = L.layerGroup().addTo(mapa);
+      mapa.on('zoomend', pintarCalles);
     }
 
     const datos = await cargarFiguras();
+    await cargarCalles();
     const propias = {
       type: 'FeatureCollection',
       features: datos.features.filter(f => f.properties.zona === zona)
@@ -407,6 +437,7 @@ modulo('mapa interactivo', () => {
     setTimeout(() => {
       mapa.invalidateSize();
       mapa.fitBounds(capaZonas.getBounds(), { padding: [24, 24] });
+      pintarCalles();
     }, 60);
   };
 
