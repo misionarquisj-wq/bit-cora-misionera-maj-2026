@@ -46,12 +46,6 @@
       <a href="#cronograma">Cronograma</a>
       <a href="#telefonos">Teléfonos de emergencia</a>
     </nav>
-    <div class="drawer-pie">
-      <button class="tema-btn" id="btnTema" type="button" aria-pressed="false">
-        <span class="tema-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8.5 8.5 0 0 1 10.5 4a8.5 8.5 0 1 0 9.5 9.5z"/></svg></span>
-        <span id="temaTexto">Modo oscuro</span>
-      </button>
-    </div>
   </aside>
   <div class="backdrop" id="backdrop" hidden></div>
 
@@ -167,8 +161,7 @@
         <h1 class="big-title">Oraciones y<br>meditaciones</h1>
 
         <div class="buscador">
-          <label class="skip" for="buscarOracion">Buscar una oración</label>
-          <input type="search" id="buscarOracion" placeholder="Buscar: enfermo, trabajo, María…" autocomplete="off">
+          <input type="search" id="buscarOracion" aria-label="Buscar una oración" placeholder="Buscar: enfermo, trabajo, María…" autocomplete="off">
         </div>
 
         <div id="listaOraciones">
