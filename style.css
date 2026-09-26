@@ -415,7 +415,12 @@ main{min-height:calc(100svh - 64px)}
 .canto .cancion p:last-child{margin-bottom:0}
 .text-page .canto+h2{margin-top:30px}
 
-/* ══ PRUEBA: vidrio también en el contenido (se quita entera si no gusta) ══ */
+/* ══ Vidrio sobre el contenido ══
+   Las tarjetas dejan pasar el fondo. Para que eso se vea hace falta el
+   lavado de color de body::before: sobre una hoja lisa, un vidrio no se
+   distingue de una superficie blanca.
+   Ojo: backdrop-filter hace que lo de position:fixed que esté adentro se
+   cuelgue de la tarjeta y no de la ventana. */
 .paper:not(#cancionero>.paper):not(#patronos>.paper):not(#cronograma>.paper),.dia-cron,.home-grid,.canto,.patrono,.plegable,.instalar,.mapas-offline{
   background:rgba(255,255,255,.55);
   backdrop-filter:blur(20px) saturate(180%);
