@@ -247,11 +247,11 @@ main{min-height:calc(100svh - 64px)}
 .patrono>summary{list-style:none;cursor:pointer;padding:14px 18px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;background:var(--pastel,#fff)}
 .patrono-texto{display:grid;gap:2px;min-width:0}
 .patrono-figura{width:auto;height:74px;display:block;align-self:end;margin-bottom:-4px}
-.p-africa{--pastel:#eaf0dc}
-.p-america{--pastel:#fae4e6}
-.p-europa{--pastel:#f2eff2}
-.p-asia{--pastel:#fdf3cf}
-.p-oceania{--pastel:#e3f1f9}
+.p-africa{--pastel:#ddeabd}
+.p-america{--pastel:#f8d2d7}
+.p-europa{--pastel:#fff}
+.p-asia{--pastel:#fbeaa4}
+.p-oceania{--pastel:#cfe6f4}
 .patrono>summary::-webkit-details-marker{display:none}
 .patrono .continente{font-family:var(--f-datos);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--malva)}
 .patrono .santo{font-family:var(--f-subtitulo);font-size:1.12rem;color:var(--malva-hondo);line-height:1.25}
