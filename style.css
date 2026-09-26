@@ -254,6 +254,14 @@ main{min-height:calc(100svh - 64px)}
 .p-europa{--pastel:#fff;--fuerte:#b7afb9}
 .p-asia{--pastel:#fbeaa4;--fuerte:#fada3f}
 .p-oceania{--pastel:#cfe6f4;--fuerte:#3fa9dd}
+.m-teresita{--pastel:#f8d2d7;--fuerte:#e68a93}
+.m-javier{--pastel:#ddeabd;--fuerte:#7c9f21}
+.m-antula{--pastel:#fbeaa4;--fuerte:#fada3f}
+.m-maria{--pastel:#e8dbef;--fuerte:#c7a4d3}
+.m-jesus{--pastel:#ecdde7;--fuerte:#825574}
+.oracion-santo{margin:16px 0 2px;padding:14px 16px 16px;border-radius:14px;background:var(--tint)}
+.oracion-santo h3{margin:0 0 8px;font-size:.9rem;color:var(--malva)}
+.oracion-santo p{margin:0;line-height:1.55}
 .patrono>summary::-webkit-details-marker{display:none}
 .patrono .continente{font-family:var(--f-datos);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--malva)}
 .patrono .santo{font-family:var(--f-subtitulo);font-size:1.12rem;color:var(--malva-hondo);line-height:1.25}
