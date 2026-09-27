@@ -347,7 +347,7 @@ modulo('mapas detallados', () => {
       boton.hidden = true;
     } else {
       titulo.textContent = 'Mapas detallados';
-      detalle.textContent = 'Para ver tu zona con las calles y tu propia ubicación, sin señal. Unos 20 MB, se descargan una sola vez y conviene hacerlo con wifi.';
+      detalle.textContent = 'Se bajan las siete zonas de misión, con las calles y tu propia ubicación, para verlas sin señal. Unos 20 MB, una sola vez y conviene hacerlo con wifi.';
       boton.hidden = false;
       boton.disabled = false;
       boton.textContent = 'Descargar mapas';
