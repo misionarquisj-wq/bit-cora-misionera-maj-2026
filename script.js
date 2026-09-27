@@ -258,7 +258,7 @@ modulo('estado de la descarga', () => {
 
     if (datos.tipo === 'progreso') {
       caja.dataset.estado = 'bajando';
-      texto.textContent = `Descargando para usar sin señal… ${datos.guardados} de ${datos.total}`;
+      texto.textContent = 'Descargando para usar sin señal…';
       reintentar.hidden = true;
       return;
     }
@@ -271,7 +271,7 @@ modulo('estado de la descarga', () => {
     }
 
     caja.dataset.estado = 'incompleto';
-    texto.textContent = `Descarga incompleta: faltan ${datos.total - datos.guardados} de ${datos.total}`;
+    texto.textContent = 'La descarga quedó incompleta';
     reintentar.hidden = false;
   };
 
@@ -320,17 +320,22 @@ modulo('mapas detallados', () => {
     })
     .catch(() => {});
 
+  const riel = document.getElementById('mapasRiel');
+  const barra = document.getElementById('mapasProgreso');
+
   const pintar = datos => {
     if (datos.tipo === 'mapas-progreso') {
       caja.dataset.estado = 'bajando';
       const pct = datos.total ? Math.round(datos.guardados / datos.total * 100) : 0;
-      titulo.textContent = `Descargando mapas… ${pct}%`;
-      detalle.textContent = `${datos.guardados} de ${datos.total} pedazos. Podés seguir usando la app.`;
+      titulo.textContent = 'Descargando mapas…';
+      detalle.textContent = 'Podés seguir usando la app mientras tanto.';
+      if (riel && barra) { riel.hidden = false; barra.style.width = pct + '%'; }
       boton.disabled = true;
       boton.textContent = 'Descargando…';
       return;
     }
 
+    if (riel) riel.hidden = true;
     const listos = datos.completo;
     caja.dataset.estado = listos ? 'listo' : 'sin';
     mapasListos = listos;
@@ -342,7 +347,7 @@ modulo('mapas detallados', () => {
       boton.hidden = true;
     } else {
       titulo.textContent = 'Mapas detallados';
-      detalle.textContent = 'Para ver tu zona con las calles y tu propia ubicación, sin señal. Unos 10 MB, se descargan una sola vez.';
+      detalle.textContent = 'Para ver tu zona con las calles y tu propia ubicación, sin señal. Unos 20 MB, se descargan una sola vez y conviene hacerlo con wifi.';
       boton.hidden = false;
       boton.disabled = false;
       boton.textContent = 'Descargar mapas';
