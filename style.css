@@ -457,6 +457,9 @@ body::before{
 
 /* ── Cómo usar esta app ── */
 .drawer-aparte{margin-top:6px;box-shadow:inset 0 1px 0 var(--hairline);border-radius:0 0 12px 12px;color:var(--malva-hondo)}
+.drawer-aparte+.drawer-aparte{margin-top:0;box-shadow:none;border-radius:12px}
+.drawer-fotos{display:grid;gap:1px}
+.drawer-aparte small{font-family:var(--f-datos);font-size:.68rem;letter-spacing:.04em;color:var(--tinta-suave);text-transform:uppercase}
 .text-page .pasos-uso,.pasos-uso{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:16px}
 .pasos-uso li,.text-page .pasos-uso li{display:grid;grid-template-columns:38px 1fr;gap:14px;align-items:start;margin:0}
 .paso-num{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--malva);color:#fff;font-family:var(--f-subtitulo);font-size:1rem}
