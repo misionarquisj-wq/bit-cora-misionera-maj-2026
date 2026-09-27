@@ -4,7 +4,7 @@
    tienen la Bitácora guardada NUNCA reciben la corrección.
    Usar la fecha del cambio: '2026-09-25a', '2026-09-25b', etc.
    ───────────────────────────────────────────────────────────── */
-const VERSION = '2026-09-27i';
+const VERSION = '2026-09-27j';
 
 const CACHE = `bitacora-${VERSION}`;
 
@@ -42,7 +42,7 @@ const PESADO = [
   './images/ui/portada.png',
   './images/ui/oido.png',
   './images/ui/lema-cristo.png',
-  './images/ui/patronos-caucete.jpg',
+  './images/ui/cristo-rey-caucete.jpg',
   './images/ui/terremoto-1977.jpg',
   './images/ui/escuela-chirapozu.jpg',
   './images/ui/rosario-continentes.jpg',
