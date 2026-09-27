@@ -469,7 +469,9 @@ body::before{
 .text-page .avisos-uso,.avisos-uso{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .text-page .avisos-uso li{padding:14px 16px;border-radius:14px;background:var(--papel);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),var(--sombra);border-left:5px solid var(--marca,var(--lila));font-size:.96rem;line-height:1.5}
 .avisos-uso strong{font-family:var(--f-subtitulo);font-weight:600;color:var(--malva-hondo)}
-.a-rojo{--marca:var(--rojo)}
-.a-malva{--marca:var(--malva)}
-.a-verde{--marca:var(--verde)}
-.a-lila{--marca:var(--lila)}
+/* Los avisos llevan el color de cada continente de la misión */
+.av-africa{--marca:#7c9f21}
+.av-america{--marca:#ca2435}
+.av-europa{--marca:#b7afb9}
+.av-oceania{--marca:#3fa9dd}
+.av-asia{--marca:#fada3f}
