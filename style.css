@@ -353,6 +353,7 @@ main{min-height:calc(100svh - 64px)}
 .tel-emergencia{color:var(--rojo)}
 .tel-normal{color:var(--verde)}
 .lista-llamar a>span:not(.tel-icono){grid-column:2;min-width:0;line-height:1.25;text-wrap:pretty}
+.lista-llamar small{display:block;font-family:var(--f-texto);font-size:.9rem;color:var(--tinta-suave);line-height:1.2;margin-top:1px}
 .lista-llamar strong{grid-column:2;justify-self:start;font-family:var(--f-datos);font-size:1.05rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.01em;white-space:nowrap;color:var(--malva)}
 .nota-fijos{font-size:.9rem;color:var(--tinta-suave);margin:0}
 .emergency-page form{display:grid;gap:16px}
