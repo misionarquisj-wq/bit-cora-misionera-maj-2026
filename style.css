@@ -323,7 +323,7 @@ main{min-height:calc(100svh - 64px)}
 .c-naranja{background:#e8842c}
 .c-rosa{background:#e68a93}
 .c-lila{background:#c7a4d3}
-.c-blanco{background:var(--papel)fff}
+.c-blanco{background:#fff}
 .ver-punto{margin-left:auto;font-family:var(--f-datos);font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--malva);background:var(--tint);border-radius:999px;padding:6px 12px;text-decoration:none;white-space:nowrap}
 .zone{padding:30px 0;border-top:1px solid var(--borde)}
 .zone:first-of-type{border-top:0}
